@@ -33,12 +33,12 @@ namespace NeferpituBanking
             }
           
         }
-        private void EnterBanking(object sender, MouseButtonEventArgs e)
+        private void EnterBanking(object sender, RoutedEventArgs e)
         {
             Hide();
             UserBanking userBanking = new UserBanking();
             userBanking.Show();
-
+            Close();
         }
     }
 }

@@ -28,7 +28,7 @@
             </Grid.RowDefinitions>
             <TextBox MaxWidth="350" MinWidth="200" HorizontalAlignment="Center" Padding="5" materialDesign:HintAssist.Hint="Login" VerticalAlignment="Center"></TextBox>
             <PasswordBox  MaxWidth="350" MinWidth="200" HorizontalAlignment="Center" Grid.Row="1" Padding="5" materialDesign:HintAssist.Hint="Password" VerticalAlignment="Center" ></PasswordBox>
-            <Button Grid.Row="3"  HorizontalAlignment="Center" MouseDown="EnterBanking">Submit</Button>
+            <Button Grid.Row="3"  HorizontalAlignment="Center" Click="EnterBanking">Submit</Button>
         </Grid>
     </Grid>
  

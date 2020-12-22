@@ -10,26 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace NeferpituBanking
 {
     /// <summary>
-    /// Interaction logic for UserBanking.xaml
+    /// Interaction logic for ChartControl.xaml
     /// </summary>
-    public partial class UserBanking : Window
+    public partial class ChartControl : UserControl
     {
-        public UserBanking()
+        public ChartControl()
         {
             InitializeComponent();
-        }
-
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if(e.LeftButton == MouseButtonState.Pressed)
-            {
-                DragMove();
-            }
         }
     }
 }
