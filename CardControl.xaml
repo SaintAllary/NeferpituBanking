@@ -9,16 +9,17 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="{DynamicResource PrimaryHueLightBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+  
             <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.4*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.7*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        <Button Margin="10" Grid.Column="1" Grid.Row="1"  Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">Finance Control</Button>
 
-       
-        <ScrollViewer Grid.Row="1" Grid.Column="1">
+        <ScrollViewer Grid.Row="1" Grid.Column="0">
         <ListBox Margin="20" >
                 <ListBoxItem>adasd</ListBoxItem>
                 <ListBoxItem>adasd</ListBoxItem>
@@ -38,14 +39,14 @@
         </ScrollViewer>
         <StackPanel Margin="0,15,0,0"  Grid.Column="0" Grid.Row="1" >
 
-            <Button Margin="10"  Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">Finance Control</Button>
+          
         </StackPanel>
-        <Grid   Grid.Row="0" Grid.Column="1">
+        <Grid   Grid.Row="0" Grid.Column="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition  Width="0.4*"> </ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition  > </ColumnDefinition>
+                <ColumnDefinition Width="0.4*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <materialDesign:Flipper  Grid.Column="1" Margin="20" >
+            <materialDesign:Flipper  Grid.Column="0" Margin="20" >
                 <materialDesign:Flipper.FrontContent  >
                     <Grid>
                         <materialDesign:Card Background="Black" Foreground="White" Padding="8" UniformCornerRadius="10">
@@ -84,11 +85,11 @@
                 </materialDesign:Flipper.BackContent>
             </materialDesign:Flipper>
           
-            <Grid>
+            <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <StackPanel Margin="25 10 0 0" VerticalAlignment="Top">
+                <StackPanel Margin="10,10 25 0" VerticalAlignment="Top">
                     <Label  FontSize="30" FontWeight="Bold" Foreground="White">330.75$</Label>
                     <Label   FontSize="15" >Own money: 0$</Label>
                     <Label   FontSize="15" >Loan money: 0$</Label>
