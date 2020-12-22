@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NeferpituBanking"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="500" WindowStyle="None" ResizeMode="NoResize" MouseDown="DragWindow">
+        Title="MainWindow"  Height="350" Width="500" WindowStyle="None" ResizeMode="NoResize" MouseDown="DragWindow">
 
      <Grid >
         <Grid.RowDefinitions>

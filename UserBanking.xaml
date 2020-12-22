@@ -5,7 +5,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NeferpituBanking" 
-        mc:Ignorable="d" Height="700" Width="1200" WindowStyle="None" MouseDown="Window_MouseDown"    WindowStartupLocation="CenterScreen" >
+        
+        mc:Ignorable="d"  AllowsTransparency="True"  Height="700" Width="1200" WindowStyle="None" MouseDown="Window_MouseDown"    WindowStartupLocation="CenterScreen" >
 
     <Grid>
 
@@ -22,20 +23,17 @@
              
        
             <materialDesign:TransitionerSlide>
-            <materialDesign:TransitionerSlide.ForwardWipe>
-                <materialDesign:CircleWipe/>
-            </materialDesign:TransitionerSlide.ForwardWipe>
-    
-
-            <local:ChartControl/>
-            </materialDesign:TransitionerSlide>
-            <materialDesign:TransitionerSlide>
                 <materialDesign:TransitionerSlide.BackwardWipe>
                     <materialDesign:CircleWipe/>
                 </materialDesign:TransitionerSlide.BackwardWipe>
-
-                <local:SettingsControl/>
+                <local:ChartControl/>
             </materialDesign:TransitionerSlide>
+            <!--<materialDesign:TransitionerSlide>
+                <materialDesign:TransitionerSlide.ForwardWipe>
+                    <materialDesign:CircleWipe/>
+                </materialDesign:TransitionerSlide.ForwardWipe>
+                <local:SettingsControl/>
+            </materialDesign:TransitionerSlide>-->
         </materialDesign:Transitioner>
     </Grid>
 </Window>

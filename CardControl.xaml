@@ -8,6 +8,100 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="{DynamicResource PrimaryHueLightBrush}">
-        <Button Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">Move next</Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.7*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+       
+        <ScrollViewer Grid.Row="1" Grid.Column="1">
+        <ListBox Margin="20" >
+                <ListBoxItem>adasd</ListBoxItem>
+                <ListBoxItem>adasd</ListBoxItem>
+                <ListBoxItem>adasd</ListBoxItem>
+                <ListBoxItem>adasd</ListBoxItem>
+                <ListBoxItem>adasd</ListBoxItem>
+                <ListBoxItem>adasd</ListBoxItem>
+                <ListBoxItem>adasd</ListBoxItem>
+                <ListBoxItem>adasd</ListBoxItem>
+                <ListBoxItem>adasd</ListBoxItem>
+                <ListBoxItem>adasd</ListBoxItem>
+                <ListBoxItem>adasd</ListBoxItem>
+                <ListBoxItem>adasd</ListBoxItem>
+                <ListBoxItem>adasd</ListBoxItem>
+                <ListBoxItem>adasd</ListBoxItem>
+        </ListBox>
+        </ScrollViewer>
+        <StackPanel Margin="0,15,0,0"  Grid.Column="0" Grid.Row="1" >
+
+            <Button Margin="10"  Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">Finance Control</Button>
+        </StackPanel>
+        <Grid   Grid.Row="0" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="0.4*"> </ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <materialDesign:Flipper  Grid.Column="1" Margin="20" >
+                <materialDesign:Flipper.FrontContent  >
+                    <Grid>
+                        <materialDesign:Card Background="Black" Foreground="White" Padding="8" UniformCornerRadius="10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition Height="1.5*"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Button BorderThickness="0" Background="Black" Command="{x:Static materialDesign:Flipper.FlipCommand}"  HorizontalAlignment="Left">
+                                    Monobank
+                                   </Button>
+                                <Label VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center" FontSize="30" Foreground="LightGray">5375 4141 1502 3176</Label>
+                                <Label Grid.Row="2" HorizontalAlignment="Center" Margin="120,0,0,0" Foreground="LightGray">10/24</Label>
+                                <Grid Grid.Row="3" HorizontalAlignment="Right">
+                                    
+                                    <Image></Image>
+                                </Grid>
+                            </Grid>
+                        </materialDesign:Card>
+                    </Grid>
+                </materialDesign:Flipper.FrontContent>
+
+                <materialDesign:Flipper.BackContent>
+                    <Grid Background="Black">
+                        <materialDesign:Card Background="Black" Foreground="White" Padding="8" UniformCornerRadius="10">
+                            <Grid>
+                                <!--<Label FontSize="30" Foreground="LightGray">5375 4141 1002 3156</Label>-->
+                                <Button BorderThickness="0" VerticalAlignment="Top" Margin="0,40,0,0" Background="Gray" Command="{x:Static materialDesign:Flipper.FlipCommand}" ></Button>
+                                <Button  BorderThickness="0"  Background="Gray" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" MinWidth="100" Command="{x:Static materialDesign:Flipper.FlipCommand}">547</Button>
+                            </Grid>
+                        </materialDesign:Card>
+                 
+                    </Grid>
+                </materialDesign:Flipper.BackContent>
+            </materialDesign:Flipper>
+          
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Margin="25 10 0 0" VerticalAlignment="Top">
+                    <Label  FontSize="30" FontWeight="Bold" Foreground="White">330.75$</Label>
+                    <Label   FontSize="15" >Own money: 0$</Label>
+                    <Label   FontSize="15" >Loan money: 0$</Label>
+
+                    <TextBox  Margin="0,20,0,0" MinWidth="180" HorizontalAlignment="Left"  FontSize="15" materialDesign:HintAssist.Hint="Destination Card" ></TextBox>
+                    <TextBox Margin="0,10,0,0"  MinWidth="180" HorizontalAlignment="Left"    FontSize="15" materialDesign:HintAssist.Hint="Money value" ></TextBox>
+                    <Button MaxWidth="150" MinWidth="120" HorizontalAlignment="Left" Margin="0,20,0,0">Send</Button>
+
+
+                </StackPanel>
+                
+            </Grid>
+           
+        </Grid>
     </Grid>
 </UserControl>

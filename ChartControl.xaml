@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid  Background="{DynamicResource PrimaryHueMidBrush}">
-
-        <Button Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">Move next</Button>
+       
+        <Button Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}">Move next</Button>
     </Grid>
 </UserControl>
