@@ -6,10 +6,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NeferpituBanking"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <materialDesign:Card Padding="32" Margin="16">
-            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">My First Material Design App</TextBlock>
-        </materialDesign:Card>
+        Title="MainWindow" Height="350" Width="500" WindowStyle="None" ResizeMode="NoResize" MouseDown="DragWindow">
+
+     <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.35*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Grid   Background="{DynamicResource PrimaryHueMidBrush}">
+
+            <Label Foreground="White" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+                Neferpitu Banking
+            </Label>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.60*"></RowDefinition>
+                <RowDefinition Height="0.40*"></RowDefinition>
+                <RowDefinition Height="0.60*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBox MaxWidth="350" MinWidth="200" HorizontalAlignment="Center" Padding="5" materialDesign:HintAssist.Hint="Login" VerticalAlignment="Center"></TextBox>
+            <PasswordBox  MaxWidth="350" MinWidth="200" HorizontalAlignment="Center" Grid.Row="1" Padding="5" materialDesign:HintAssist.Hint="Password" VerticalAlignment="Center" ></PasswordBox>
+            <Button Grid.Row="3"  HorizontalAlignment="Center" MouseDown="EnterBanking">Submit</Button>
+        </Grid>
     </Grid>
+ 
 </Window>

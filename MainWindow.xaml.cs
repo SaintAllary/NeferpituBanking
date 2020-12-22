@@ -24,5 +24,21 @@ namespace NeferpituBanking
         {
             InitializeComponent();
         }
+
+        private void DragWindow(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+          
+        }
+        private void EnterBanking(object sender, MouseButtonEventArgs e)
+        {
+            Hide();
+            UserBanking userBanking = new UserBanking();
+            userBanking.Show();
+
+        }
     }
 }
