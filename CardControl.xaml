@@ -17,7 +17,40 @@
             <RowDefinition Height="0.7*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Margin="10" Grid.Column="1" Grid.Row="1"  Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">Finance Control</Button>
+
+        <Grid  Grid.Column="1" Grid.RowSpan="2">
+            <materialDesign:Card Background="{DynamicResource PrimaryHueDarkBrush}">
+                <StackPanel>
+                    <TextBlock Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" FontSize="30" VerticalAlignment="Center" Margin="20">
+                        Neferpitu
+                    </TextBlock>
+               
+          
+                <ListBox>
+                    <ListBoxItem >
+                        <StackPanel Orientation="Horizontal">
+                           
+                            <Button Foreground="White" Style="{DynamicResource MaterialDesignFlatButton}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Command="{x:Static materialDesign:Transitioner.MoveNextCommand}" >
+                              Control Page
+                            </Button>
+                            <materialDesign:PackIcon Foreground="White" Height="20" Width="20" Margin="20 10" Kind="PageNext" />
+                        </StackPanel>
+                    </ListBoxItem>
+
+                    <ListBoxItem >
+                        <StackPanel Orientation="Horizontal">
+
+                            <Button Foreground="White" Style="{DynamicResource MaterialDesignFlatButton}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Command="{x:Static materialDesign:Transitioner.MoveNextCommand}" >
+                                Feedback Page
+                            </Button>
+                            <materialDesign:PackIcon Foreground="White" Height="20" Width="20" Margin="20 10" Kind="PageNext" />
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+                </StackPanel>
+            </materialDesign:Card>
+            
+        </Grid>
 
         <ScrollViewer Grid.Row="1" Grid.Column="0">
         <ListBox Margin="20" >
@@ -37,11 +70,8 @@
                 <ListBoxItem>adasd</ListBoxItem>
         </ListBox>
         </ScrollViewer>
-        <StackPanel Margin="0,15,0,0"  Grid.Column="0" Grid.Row="1" >
-
-          
-        </StackPanel>
-        <Grid   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+       
+        <Grid   Grid.Row="0" Grid.Column="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition  > </ColumnDefinition>
                 <ColumnDefinition Width="0.4*"></ColumnDefinition>
