@@ -164,5 +164,68 @@ namespace NeferpituBanking
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        public virtual int CHECK__SignIn(string login, string password, ObjectParameter user_signed_Id)
+        {
+            var loginParameter = login != null ?
+                new ObjectParameter("Login", login) :
+                new ObjectParameter("Login", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CHECK__SignIn", loginParameter, passwordParameter, user_signed_Id);
+        }
+    
+        public virtual ObjectResult<string> Get__AccountType(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("Get__AccountType", iDParameter);
+        }
+    
+        public virtual ObjectResult<string> Get__AlertType(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("Get__AlertType", iDParameter);
+        }
+    
+        public virtual ObjectResult<string> Get__CardState(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("Get__CardState", iDParameter);
+        }
+    
+        public virtual ObjectResult<string> Get__CardType(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("Get__CardType", iDParameter);
+        }
+    
+        public virtual ObjectResult<string> Get__TransactionState(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("Get__TransactionState", iDParameter);
+        }
+    
+        public virtual int BACK_tRUE(ObjectParameter value)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("BACK_tRUE", value);
+        }
     }
 }

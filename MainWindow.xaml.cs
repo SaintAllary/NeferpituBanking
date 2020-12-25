@@ -35,7 +35,12 @@ namespace NeferpituBanking
         }
         private void EnterBanking(object sender, RoutedEventArgs e)
         {
+            NeferpituBankingEntities neferpituBankingEntities = new NeferpituBankingEntities();
+
+            var obj = new System.Data.Entity.Core.Objects.ObjectParameter("User_signed_Id", typeof(int));
+            neferpituBankingEntities.CHECK__SignIn("admin", "admin", obj);
             Hide();
+            MessageBox.Show(obj.Value.ToString());
             UserBanking userBanking = new UserBanking();
             userBanking.Show();
             Close();
