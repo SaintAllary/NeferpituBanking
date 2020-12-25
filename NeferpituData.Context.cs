@@ -227,5 +227,27 @@ namespace NeferpituBanking
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("BACK_tRUE", value);
         }
+    
+        public virtual ObjectResult<GET_AllUsersCards_Result> GET_AllUsersCards(Nullable<int> userId)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_AllUsersCards_Result>("GET_AllUsersCards", userIdParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> Get_InfoPermission(string login, string password)
+        {
+            var loginParameter = login != null ?
+                new ObjectParameter("Login", login) :
+                new ObjectParameter("Login", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("Get_InfoPermission", loginParameter, passwordParameter);
+        }
     }
 }

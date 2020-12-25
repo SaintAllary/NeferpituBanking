@@ -78,6 +78,9 @@
     <Compile Include="ChartControl.xaml.cs">
       <DependentUpon>ChartControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GET_AllUsersCards_Result.cs">
+      <DependentUpon>NeferpituData.tt</DependentUpon>
+    </Compile>
     <Compile Include="NeferpituData.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -105,6 +108,7 @@
     <Compile Include="UserBanking.xaml.cs">
       <DependentUpon>UserBanking.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel.cs" />
     <Page Include="CardControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

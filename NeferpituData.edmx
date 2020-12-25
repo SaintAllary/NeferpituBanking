@@ -5,9 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="NeferpituBankingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <Function Name="BACK_tRUE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="value" Type="varchar" Mode="InOut" />
-        </Function>
         <Function Name="CHECK__SignIn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Login" Type="nvarchar" Mode="In" />
           <Parameter Name="Password" Type="nvarchar" Mode="In" />
@@ -37,6 +34,13 @@
         </Function>
         <Function Name="Get__TransactionState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GET_AllUsersCards" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Get_InfoPermission" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
         </Function>
         <EntityContainer Name="NeferpituBankingModelStoreContainer" />
       </Schema></edmx:StorageModels>
@@ -107,6 +111,13 @@
           <FunctionImport Name="BACK_tRUE">
             <Parameter Name="value" Mode="InOut" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="GET_AllUsersCards" ReturnType="Collection(NeferpituBankingModel.GET_AllUsersCards_Result)">
+          <Parameter Name="UserId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Get_InfoPermission" ReturnType="Collection(Int32)">
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -118,6 +129,16 @@
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GET_AllUsersCards_Result">
+          <Property Type="Int32" Name="Id_Card" Nullable="false" />
+          <Property Type="String" Name="Code_Card" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="CardType_Id" Nullable="true" />
+          <Property Type="Int32" Name="Account_Id" Nullable="true" />
+          <Property Type="Int32" Name="CardLimits_Id" Nullable="true" />
+          <Property Type="Int32" Name="PaymentCompany_Id" Nullable="true" />
+          <Property Type="Int32" Name="CardState_Id" Nullable="true" />
+          <Property Type="Int32" Name="CardBalance_Id" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -133,7 +154,21 @@
           <FunctionImportMapping FunctionImportName="Get__CardState" FunctionName="NeferpituBankingModel.Store.Get__CardState" />
           <FunctionImportMapping FunctionImportName="Get__CardType" FunctionName="NeferpituBankingModel.Store.Get__CardType" />
           <FunctionImportMapping FunctionImportName="Get__TransactionState" FunctionName="NeferpituBankingModel.Store.Get__TransactionState" />
-          <FunctionImportMapping FunctionImportName="BACK_tRUE" FunctionName="NeferpituBankingModel.Store.BACK_tRUE" />
+          <FunctionImportMapping FunctionImportName="GET_AllUsersCards" FunctionName="NeferpituBankingModel.Store.GET_AllUsersCards">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_AllUsersCards_Result">
+                <ScalarProperty Name="Id_Card" ColumnName="Id_Card" />
+                <ScalarProperty Name="Code_Card" ColumnName="Code_Card" />
+                <ScalarProperty Name="CardType_Id" ColumnName="CardType_Id" />
+                <ScalarProperty Name="Account_Id" ColumnName="Account_Id" />
+                <ScalarProperty Name="CardLimits_Id" ColumnName="CardLimits_Id" />
+                <ScalarProperty Name="PaymentCompany_Id" ColumnName="PaymentCompany_Id" />
+                <ScalarProperty Name="CardState_Id" ColumnName="CardState_Id" />
+                <ScalarProperty Name="CardBalance_Id" ColumnName="CardBalance_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Get_InfoPermission" FunctionName="NeferpituBankingModel.Store.Get_InfoPermission" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
