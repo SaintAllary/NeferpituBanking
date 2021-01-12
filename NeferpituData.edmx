@@ -37,10 +37,13 @@
         </Function>
         <Function Name="GET_AllUsersCards" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="Get_InfoPermission" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Login" Type="nvarchar" Mode="In" />
           <Parameter Name="Password" Type="nvarchar" Mode="In" />
+          <Parameter Name="output" Type="bit" Mode="InOut" />
         </Function>
         <EntityContainer Name="NeferpituBankingModelStoreContainer" />
       </Schema></edmx:StorageModels>
@@ -113,10 +116,13 @@
           </FunctionImport>
           <FunctionImport Name="GET_AllUsersCards" ReturnType="Collection(NeferpituBankingModel.GET_AllUsersCards_Result)">
           <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Get_InfoPermission" ReturnType="Collection(Int32)">
             <Parameter Name="Login" Mode="In" Type="String" />
             <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="output" Mode="InOut" Type="Boolean" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">

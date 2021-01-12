@@ -35,23 +35,7 @@ namespace NeferpituBanking
         }
         private void EnterBanking(object sender, RoutedEventArgs e)
         {
-            ViewModel viewModel = new ViewModel();
-
-            var obj = new System.Data.Entity.Core.Objects.ObjectParameter("User_signed_Id", typeof(int));
-            viewModel.CHECK__SignIn("admin", "admin", obj);
-            Hide();
-
-            var s = viewModel.GET_AllUsersCards(Convert.ToInt32(obj.Value));
-
       
-            MessageBox.Show(s.ToString());
-          
-
-
-        
-            UserBanking userBanking = new UserBanking();
-            userBanking.Show();
-            Close();
         }
     }
 }
