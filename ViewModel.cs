@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using NeferpituBanking.Exceptions;
+using NeferpituBanking.Tables_Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +14,20 @@ using System.Windows.Input;
 namespace NeferpituBanking
 {
 
-    class ViewModel : NeferpituBankingEntities, INotifyPropertyChanged
+   public class ViewModel : NeferpituBankingEntities, INotifyPropertyChanged
     {
+     
+        private long userId;
+
+        private long UserId {
+            get => userId;
+            set
+            {
+                userId = value;
+                
+            }
+        }
+
         private string password;
         public string Password
         {
@@ -37,9 +50,35 @@ namespace NeferpituBanking
             }
         }
 
+        private List<Card> cards;
+
+        public List<Card> Cards
+        {
+            get => cards; set
+            {
+                cards = value;
+                
+            }
+        }
+
+
+        private Card currentCard;
+        public Card CurrentCard
+        {
+            get => currentCard;
+            set
+            {
+                currentCard = value;
+                OnPropertyChanged(nameof(currentCard));
+            }
+        }
+  
+
+
+
         public ViewModel()
         {
-
+            cards = new List<Card>();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -54,28 +93,68 @@ namespace NeferpituBanking
            
              try
              {
-                 var obj = new System.Data.Entity.Core.Objects.ObjectParameter(Properties.Resources.UserId__DB_name, typeof(int));
+                 var obj = new System.Data.Entity.Core.Objects.ObjectParameter(Properties.Resources.UserId__DB_name, typeof(long));
                  CHECK__SignIn(login, password, obj);
-                 //var s = GET_AllUsersCards(Convert.ToInt32(obj.Value), Login, Password);
-                 //s.ToList().ForEach(x => MessageBox.Show(x.Code_Card.ToString()));
+
+         
+
+
 
                  if (obj.Value is DBNull) throw new InvalidAuthorize();
+
                  if (Convert.ToInt32(obj.Value) >= 1)
                  {
+                     loadTotalInfo(obj);
+
+                     userId = Convert.ToInt32(obj.Value);
                      Application.Current.MainWindow.Hide();
-                     UserBanking userBanking = new UserBanking();
+                     UserBanking userBanking = new UserBanking(this);
+                 
                      userBanking.Show();
                      Application.Current.MainWindow.Close();
-
+                   
                  }
                 
              }
              catch (Exception ex)
              {
-                 MessageBox.Show(ex.Message);
+                 MessageBox.Show(ex.Message + ex.InnerException);
              }
              
 
          });
+
+        private void loadTotalInfo(System.Data.Entity.Core.Objects.ObjectParameter objectParameter)
+        {
+            loadCurrentCards(objectParameter);
+            if (cards.Count >0)
+                CurrentCard = cards[0];
+    
+        }
+
+        private void loadCurrentCards(System.Data.Entity.Core.Objects.ObjectParameter objectParameter)
+        {
+
+            foreach (var item in GET_AllUsersCards(Convert.ToInt32(objectParameter.Value), Login, Password))
+            {
+                var cardPrivateValues = GET_PrivateCardInfo(item.Id_Card, Login, Password).FirstOrDefault();
+
+             
+                var cardPrivate = cardPrivateValues == null ? null : new CardPrivate(
+                                                                      cardPrivateValues.CVV_CardPrivate,
+                                                                      cardPrivateValues.ExpireDate_CardPrivate);
+                cards.Add(new Card(
+                    item.Id_Card,
+                    item.Code_Card,
+                    item.CardBalance_Id.Value,
+                    item.CardType_Id.Value,
+                    item.CardLimits_Id.Value,
+                    item.CardState_Id.Value,
+                    item.PaymentCompany_Id.Value,
+                    cardPrivate));
+
+            }
+   
+        }
     }
 }

@@ -24,5 +24,10 @@ namespace NeferpituBanking
         {
             InitializeComponent();
         }
+
+        private void check(object sender, MouseEventArgs e)
+        {
+            //MessageBox.Show((DataContext as ViewModel).CurrentCard.Code);
+        }
     }
 }

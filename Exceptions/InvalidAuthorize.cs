@@ -9,7 +9,7 @@ namespace NeferpituBanking.Exceptions
    public class InvalidAuthorize : Exception
     {
 
-        public InvalidAuthorize():base("Invalid authorization, try to write correct values")
+        public InvalidAuthorize():base("Invalid authorization, login or password was wrong, try to write another values")
         {
 
         }

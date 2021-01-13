@@ -15,6 +15,7 @@ namespace NeferpituBanking
     {
         public int Id_Card { get; set; }
         public string Code_Card { get; set; }
+        public string BankName_Card { get; set; }
         public Nullable<int> CardType_Id { get; set; }
         public Nullable<int> Account_Id { get; set; }
         public Nullable<int> CardLimits_Id { get; set; }

@@ -7,6 +7,7 @@
              xmlns:local="clr-namespace:NeferpituBanking"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+   
     <Grid Background="{DynamicResource PrimaryHueLightBrush}">
         <Grid.ColumnDefinitions>
   
@@ -54,7 +55,7 @@
 
         <ScrollViewer Grid.Row="1" Grid.Column="0">
         <ListBox Margin="20" >
-                <ListBoxItem>adasd</ListBoxItem>
+                <ListBoxItem >adasd</ListBoxItem>
                 <ListBoxItem>adasd</ListBoxItem>
                 <ListBoxItem>adasd</ListBoxItem>
                 <ListBoxItem>adasd</ListBoxItem>
@@ -89,9 +90,9 @@
                                 </Grid.RowDefinitions>
                                 <Button BorderThickness="0" Background="Black" Command="{x:Static materialDesign:Flipper.FlipCommand}"  HorizontalAlignment="Left">
                                     Monobank
-                                   </Button>
-                                <Label VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center" FontSize="30" Foreground="LightGray">5375 4141 1502 3176</Label>
-                                <Label Grid.Row="2" HorizontalAlignment="Center" Margin="120,0,0,0" Foreground="LightGray">10/24</Label>
+                                </Button>
+                                <Label VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center" FontSize="30" Foreground="LightGray" Content="{Binding CurrentCard.Code}"></Label>
+                                <Label Grid.Row="2" HorizontalAlignment="Center" Margin="120,0,0,0" Foreground="LightGray" Content="{Binding CurrentCard.CardPrivate.CVV}"></Label>
                                 <Grid Grid.Row="3" HorizontalAlignment="Right">
                                     
                                     <Image></Image>

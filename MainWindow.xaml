@@ -33,7 +33,7 @@
             </Grid.RowDefinitions>
             <TextBox Text="{Binding Login}" MaxWidth="350" MinWidth="200" HorizontalAlignment="Center" Padding="5" materialDesign:HintAssist.Hint="Login" VerticalAlignment="Center"></TextBox>
             <TextBox Text="{Binding Password}"   MaxWidth="350" MinWidth="200" HorizontalAlignment="Center" Grid.Row="1" Padding="5" materialDesign:HintAssist.Hint="Password" VerticalAlignment="Center" ></TextBox>
-            <Button CommandParameter="{Binding ElementName=signInWindow}" Command="{Binding UserSignIn}" Grid.Row="3"  HorizontalAlignment="Center" Click="EnterBanking">Submit</Button>
+            <Button CommandParameter="{Binding ElementName=signInWindow}" Command="{Binding UserSignIn}" Grid.Row="3"  HorizontalAlignment="Center" >Submit</Button>
         </Grid>
     </Grid>
  

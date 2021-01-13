@@ -11,9 +11,9 @@ namespace NeferpituBanking
 {
     using System;
     
-    public partial class sp_helpdiagramdefinition_Result
+    public partial class GET_PrivateCardInfo_Result
     {
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public string CVV_CardPrivate { get; set; }
+        public string ExpireDate_CardPrivate { get; set; }
     }
 }

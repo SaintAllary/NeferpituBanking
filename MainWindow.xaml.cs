@@ -33,9 +33,6 @@ namespace NeferpituBanking
             }
           
         }
-        private void EnterBanking(object sender, RoutedEventArgs e)
-        {
-      
-        }
+ 
     }
 }

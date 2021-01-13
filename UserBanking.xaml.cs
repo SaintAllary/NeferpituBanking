@@ -24,6 +24,16 @@ namespace NeferpituBanking
             InitializeComponent();
         }
 
+        public UserBanking(ViewModel viewModel)
+        {
+    
+            InitializeComponent();
+            DataContext = viewModel;
+
+            //MessageBox.Show((DataContext as ViewModel).CurrentCard.Code);
+        }
+
+
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
