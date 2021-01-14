@@ -151,6 +151,7 @@
     </Compile>
     <Compile Include="Tables Classes\Card.cs" />
     <Compile Include="Tables Classes\CardPrivate.cs" />
+    <Compile Include="Tables Classes\TransactionOperation.cs" />
     <Compile Include="UserBanking.xaml.cs">
       <DependentUpon>UserBanking.xaml</DependentUpon>
     </Compile>

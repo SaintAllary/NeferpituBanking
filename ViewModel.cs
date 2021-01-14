@@ -17,6 +17,28 @@ namespace NeferpituBanking
 
    public class ViewModel : NeferpituBankingEntities, INotifyPropertyChanged
     {
+
+        private ObservableCollection<GET_AllAlerts_Result> alters;
+        public ObservableCollection<GET_AllAlerts_Result> Alters {
+            get => alters;
+            set
+            {
+                alters = value;
+                OnPropertyChanged(nameof(alters));
+            }
+        }
+        
+
+        private TransactionOperation transactionOperation;
+        public TransactionOperation TransactionOperation {
+            get => transactionOperation;
+            set
+            {
+                transactionOperation = value;
+                OnPropertyChanged(nameof(transactionOperation));
+            }
+        }
+
      
         private long userId;
 
@@ -80,6 +102,9 @@ namespace NeferpituBanking
         public ViewModel()
         {
             cards = new ObservableCollection<Card>();
+            TransactionOperation = new TransactionOperation();
+            Alters = new ObservableCollection<GET_AllAlerts_Result>();
+ 
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -128,11 +153,20 @@ namespace NeferpituBanking
         private void loadTotalInfo(System.Data.Entity.Core.Objects.ObjectParameter objectParameter)
         {
             loadCurrentCards(objectParameter);
-            if (cards.Count >0)
+            if (cards.Count >0 && currentCard == null)
                 CurrentCard = cards[0];
-    
-        }
 
+            loadAlerts(objectParameter);
+       
+            GC.Collect();
+        }
+        private void loadAlerts(System.Data.Entity.Core.Objects.ObjectParameter objectParameter)
+        {
+            foreach(var item in GET_AllAlerts(Convert.ToInt32(objectParameter.Value), this.Login, this.Password))
+            {
+                Alters.Add(item);
+            }
+        }
         private void loadCurrentCards(System.Data.Entity.Core.Objects.ObjectParameter objectParameter)
         {
 
@@ -140,11 +174,22 @@ namespace NeferpituBanking
             {
                 var cardPrivateValues = GET_PrivateCardInfo(item.Id_Card, Login, Password).FirstOrDefault();
 
-             
-                //var cardPrivate = cardPrivateValues == null ? null : new CardPrivate(
-                //                                                      cardPrivateValues.CVV_CardPrivate,
-                //                                                      cardPrivateValues.ExpireDate_CardPrivate);
-                cards.Add(new Card(item, cardPrivateValues));
+                cards.Add(new Card(item, cardPrivateValues)
+                {
+                    GET_CardBalance_Result = GET_CardBalance(item.CardBalance_Id, this.login, this.password).FirstOrDefault(),
+                    PaymentCompany = GET_PaymentCompany(item.PaymentCompany_Id).FirstOrDefault(),
+                    CardLimit = GET_CardLimits(item.CardLimits_Id, this.login, this.password).FirstOrDefault(),
+                    Type = Get__CardType(item.CardType_Id).FirstOrDefault(),
+                    State= GET_CardState(item.CardState_Id).FirstOrDefault(),
+                   
+
+                }) ;
+                foreach(var transactions in GET_AllTransactions(item.Id_Card, this.login, this.password))
+                {
+                    if(transactions != null)
+                    cards[cards.Count - 1].Transctions.Add(transactions);
+                  
+                }
                
             }
    

@@ -15,7 +15,7 @@
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.03*"></RowDefinition>
+            <RowDefinition Height="0.04*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -23,7 +23,7 @@
 
 
    
-                <Button  Margin="0,0,60,0"  Style="{DynamicResource MaterialDesignFlatDarkBgButton}" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button  Width="50" Margin="0,0,50,0"  Style="{DynamicResource MaterialDesignFlatDarkBgButton}" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <materialDesign:PackIcon Kind="Resize" VerticalAlignment="Center"></materialDesign:PackIcon>
                 </Button>
                <Button  Style="{DynamicResource MaterialDesignFlatDarkBgButton}" HorizontalAlignment="Right" VerticalAlignment="Center">
@@ -40,6 +40,7 @@
 
             <Grid>
                 <local:CardControl/>
+
             </Grid>
 
 
@@ -47,7 +48,7 @@
                 <materialDesign:TransitionerSlide.BackwardWipe>
                     <materialDesign:CircleWipe/>
                 </materialDesign:TransitionerSlide.BackwardWipe>
-                <local:ChartControl/>
+                <local:SettingsControl/>
             </materialDesign:TransitionerSlide>
         </materialDesign:Transitioner>
     </Grid>
