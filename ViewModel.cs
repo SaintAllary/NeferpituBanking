@@ -3,6 +3,7 @@ using NeferpituBanking.Exceptions;
 using NeferpituBanking.Tables_Classes;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -50,9 +51,9 @@ namespace NeferpituBanking
             }
         }
 
-        private List<Card> cards;
+        private ObservableCollection<Card> cards;
 
-        public List<Card> Cards
+        public ObservableCollection<Card> Cards
         {
             get => cards; set
             {
@@ -78,7 +79,7 @@ namespace NeferpituBanking
 
         public ViewModel()
         {
-            cards = new List<Card>();
+            cards = new ObservableCollection<Card>();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -140,19 +141,11 @@ namespace NeferpituBanking
                 var cardPrivateValues = GET_PrivateCardInfo(item.Id_Card, Login, Password).FirstOrDefault();
 
              
-                var cardPrivate = cardPrivateValues == null ? null : new CardPrivate(
-                                                                      cardPrivateValues.CVV_CardPrivate,
-                                                                      cardPrivateValues.ExpireDate_CardPrivate);
-                cards.Add(new Card(
-                    item.Id_Card,
-                    item.Code_Card,
-                    item.CardBalance_Id.Value,
-                    item.CardType_Id.Value,
-                    item.CardLimits_Id.Value,
-                    item.CardState_Id.Value,
-                    item.PaymentCompany_Id.Value,
-                    cardPrivate));
-
+                //var cardPrivate = cardPrivateValues == null ? null : new CardPrivate(
+                //                                                      cardPrivateValues.CVV_CardPrivate,
+                //                                                      cardPrivateValues.ExpireDate_CardPrivate);
+                cards.Add(new Card(item, cardPrivateValues));
+               
             }
    
         }

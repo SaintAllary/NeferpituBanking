@@ -6,30 +6,23 @@ using System.Threading.Tasks;
 
 namespace NeferpituBanking.Tables_Classes
 {
-    public class Card
+    public class Card : GET_AllUsersCards_Result
     {
-        public CardPrivate CardPrivate { get; set; }
-        public string BankName { get; set; }
-        public long Id { get; set; }
-        public string Code { get; set; }
-        public long? BalanceId { get; set; }
-        public long? TypeId { get; set; }
-        public long? LimitId { get; set; }
-        public long? StateId { get; set; }
-        public long? PaymentCompanyId { get; set; }
-        public Card(long Id,string Code, long BalanceId, long TypeId, long LimitId, long StateId, long PaymentCompanyId,CardPrivate cardPrivate)
-        {
-            //this.BankName = bankName;
-            this.Id = Id;
-            this.Code = Code;
-            this.BalanceId = BalanceId;
-            this.TypeId = TypeId;
-            this.LimitId = LimitId;
-            this.StateId = StateId;
-            this.PaymentCompanyId = PaymentCompanyId;
-            CardPrivate = cardPrivate;
 
+        public GET_PrivateCardInfo_Result CardPrivate { get; set; }
+       public Card(GET_AllUsersCards_Result card,GET_PrivateCardInfo_Result cardPrivate)
+        {
+
+            this.Account_Id = card.Account_Id;
+            this.BankName_Card = card.BankName_Card;
+            this.CardBalance_Id = card.CardBalance_Id;
+            this.CardLimits_Id = card.CardLimits_Id;
+            this.CardState_Id = card.CardState_Id;
+            this.Code_Card = card.Code_Card;
+            this.Id_Card = card.Id_Card;
+            this.CardPrivate = cardPrivate;
+            
+            //CardPrivate.ExpireDate_CardPrivate
         }
-      
     }
 }

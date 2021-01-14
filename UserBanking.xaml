@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NeferpituBanking" 
         
-        mc:Ignorable="d"  AllowsTransparency="True"  Height="700" Width="1000" WindowStyle="None" MouseDown="Window_MouseDown"    WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" >
+        mc:Ignorable="d"  AllowsTransparency="True"  Height="700" Width="1200" WindowStyle="None" MouseDown="Window_MouseDown"    WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" >
     <Window.DataContext>
         <local:ViewModel>
        
