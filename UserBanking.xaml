@@ -9,13 +9,32 @@
         mc:Ignorable="d"  AllowsTransparency="True"  Height="700" Width="1200" WindowStyle="None" MouseDown="Window_MouseDown"    WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" >
     <Window.DataContext>
         <local:ViewModel>
-       
+
 
         </local:ViewModel>
     </Window.DataContext>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.03*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
 
-        <materialDesign:Transitioner SelectedIndex="0" AutoApplyTransitionOrigins="True">
+        <Grid   Background="{DynamicResource PrimaryHueDarkBrush}" >
+
+
+   
+                <Button  Margin="0,0,60,0"  Style="{DynamicResource MaterialDesignFlatDarkBgButton}" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="Resize" VerticalAlignment="Center"></materialDesign:PackIcon>
+                </Button>
+               <Button  Style="{DynamicResource MaterialDesignFlatDarkBgButton}" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="Close" VerticalAlignment="Center"></materialDesign:PackIcon>
+                </Button>
+         
+           
+          
+        </Grid>
+
+        <materialDesign:Transitioner Grid.Row="1" SelectedIndex="0" AutoApplyTransitionOrigins="True">
 
 
 
