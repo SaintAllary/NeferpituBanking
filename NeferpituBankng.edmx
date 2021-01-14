@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NeferpituBankingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="CHECK__SignIn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+          <Parameter Name="User_signed_Id" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="DO__Transaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Value" Type="money" Mode="In" />
+          <Parameter Name="CardOwner_Id" Type="int" Mode="In" />
+          <Parameter Name="DestinationCard_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Get__AccountType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Get__AlertType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Get__CardState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Get__CardType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Get__TransactionState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GET_AccountInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdUser" Type="int" Mode="In" />
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GET_AllAlerts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccountId" Type="int" Mode="In" />
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GET_AllTransactions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CardOwnerId" Type="int" Mode="In" />
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GET_AllUsersCards" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GET_CardBalance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CardBalanceId" Type="int" Mode="In" />
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GET_CardLimits" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CardLimitsId" Type="int" Mode="In" />
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GET_CardState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CardStateId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GET_CardType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CardTypeId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Get_InfoPermission" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+          <Parameter Name="output" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="GET_LoginPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GET_PaymentCompany" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompanyId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GET_PrivateCardInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Card_id" Type="bigint" Mode="In" />
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GET_TransactionState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="transactionStateId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SET_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NewLogin" Type="nvarchar" Mode="In" />
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+          <Parameter Name="IdLog" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SET_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NewPass" Type="nvarchar" Mode="In" />
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+          <Parameter Name="IdPass" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="NeferpituBankingModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NeferpituBankingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="NeferpituBankingEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="CHECK__SignIn">
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="User_signed_Id" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DO__Transaction">
+            <Parameter Name="Value" Mode="In" Type="Decimal" />
+            <Parameter Name="CardOwner_Id" Mode="In" Type="Int32" />
+            <Parameter Name="DestinationCard_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Get__AccountType" ReturnType="Collection(String)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Get__AlertType" ReturnType="Collection(String)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Get__CardState" ReturnType="Collection(String)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Get__CardType" ReturnType="Collection(String)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Get__TransactionState" ReturnType="Collection(String)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GET_AccountInfo" ReturnType="Collection(NeferpituBankingModel.GET_AccountInfo_Result)">
+            <Parameter Name="IdUser" Mode="In" Type="Int32" />
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_AllAlerts" ReturnType="Collection(NeferpituBankingModel.GET_AllAlerts_Result)">
+            <Parameter Name="AccountId" Mode="In" Type="Int32" />
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_AllTransactions" ReturnType="Collection(NeferpituBankingModel.GET_AllTransactions_Result)">
+            <Parameter Name="CardOwnerId" Mode="In" Type="Int32" />
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_AllUsersCards" ReturnType="Collection(NeferpituBankingModel.GET_AllUsersCards_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_CardBalance" ReturnType="Collection(NeferpituBankingModel.GET_CardBalance_Result)">
+            <Parameter Name="CardBalanceId" Mode="In" Type="Int32" />
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_CardLimits" ReturnType="Collection(NeferpituBankingModel.GET_CardLimits_Result)">
+            <Parameter Name="CardLimitsId" Mode="In" Type="Int32" />
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_CardState" ReturnType="Collection(NeferpituBankingModel.GET_CardState_Result)">
+            <Parameter Name="CardStateId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GET_CardType" ReturnType="Collection(NeferpituBankingModel.GET_CardType_Result)">
+            <Parameter Name="CardTypeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Get_InfoPermission">
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="output" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="GET_LoginPassword" ReturnType="Collection(NeferpituBankingModel.GET_LoginPassword_Result)">
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_PaymentCompany" ReturnType="Collection(NeferpituBankingModel.GET_PaymentCompany_Result)">
+            <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GET_PrivateCardInfo" ReturnType="Collection(NeferpituBankingModel.GET_PrivateCardInfo_Result)">
+            <Parameter Name="Card_id" Mode="In" Type="Int64" />
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_TransactionState" ReturnType="Collection(NeferpituBankingModel.GET_TransactionState_Result)">
+            <Parameter Name="transactionStateId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SET_Login">
+            <Parameter Name="NewLogin" Mode="In" Type="String" />
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="IdLog" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SET_Password">
+            <Parameter Name="NewPass" Mode="In" Type="String" />
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="IdPass" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GET_AccountInfo_Result">
+          <Property Type="Int32" Name="Id_Account" Nullable="false" />
+          <Property Type="String" Name="Name_Account" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Surname_Account" Nullable="true" MaxLength="30" />
+          <Property Type="Boolean" Name="IsActive_Account" Nullable="true" />
+          <Property Type="String" Name="PhotoURL_Account" Nullable="true" MaxLength="40" />
+          <Property Type="Int32" Name="Pin_Id" Nullable="true" />
+          <Property Type="Int32" Name="AccountStatus_Id" Nullable="true" />
+          <Property Type="Int32" Name="Sex_Account_Id" Nullable="true" />
+          <Property Type="Int32" Name="AccountPrivate_Id" Nullable="true" />
+          <Property Type="Int32" Name="AccountType_Id" Nullable="true" />
+          <Property Type="Int32" Name="Login_Id" Nullable="true" />
+          <Property Type="Int32" Name="Password_Id" Nullable="true" />
+          <Property Type="Int32" Name="Id_AccountPrivate" Nullable="false" />
+          <Property Type="DateTime" Name="BDate_AccountPrivate" Nullable="true" />
+          <Property Type="String" Name="City_AccountPrivate" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Street_AccountPrivate" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Phone_AccountPrivate" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Email_AccountPrivate" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="PassportINN_AccountPrive" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="CommercialAccountInfo_Id" Nullable="true" />
+          <Property Type="Int32" Name="Id_CommercialAccountInfo" Nullable="false" />
+          <Property Type="String" Name="Education_CommercialAccountInfo" Nullable="true" MaxLength="40" />
+          <Property Type="Decimal" Name="OfficialSalary_CommercialAccountInfo" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="UnofficialSalary__CommercialAccountInfo" Nullable="true" Precision="19" />
+          <Property Type="String" Name="Position_CommercialAccountInfo" Nullable="true" MaxLength="25" />
+          <Property Type="Int32" Name="Id_AccountType" Nullable="false" />
+          <Property Type="String" Name="Type_AccountType" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="Id_Status" Nullable="false" />
+          <Property Type="String" Name="Value_AccountStatus" Nullable="true" MaxLength="25" />
+        </ComplexType>
+        <ComplexType Name="GET_AllAlerts_Result">
+          <Property Type="String" Name="Type" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Caption" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Value" Nullable="true" MaxLength="25" />
+        </ComplexType>
+        <ComplexType Name="GET_AllTransactions_Result">
+          <Property Type="Int32" Name="Id_Transaction" Nullable="false" />
+          <Property Type="Decimal" Name="Value_Transaction" Nullable="true" Precision="19" />
+          <Property Type="DateTime" Name="Date_Transaction" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="TransactionState_Id" Nullable="true" />
+          <Property Type="Int32" Name="CardOwner_Id" Nullable="true" />
+          <Property Type="Int32" Name="DestionationCard_Id" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GET_AllUsersCards_Result">
+          <Property Type="Int32" Name="Id_Card" Nullable="false" />
+          <Property Type="String" Name="Code_Card" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="BankName_Card" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="CardType_Id" Nullable="true" />
+          <Property Type="Int32" Name="Account_Id" Nullable="true" />
+          <Property Type="Int32" Name="CardLimits_Id" Nullable="true" />
+          <Property Type="Int32" Name="PaymentCompany_Id" Nullable="true" />
+          <Property Type="Int32" Name="CardState_Id" Nullable="true" />
+          <Property Type="Int32" Name="CardBalance_Id" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GET_CardBalance_Result">
+          <Property Type="Int32" Name="Id_CardBalance" Nullable="false" />
+          <Property Type="Decimal" Name="CurrentBalance_CardBalance" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="AvailableBalance_CardBalance" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="Deposits_CardBalance" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="GET_CardLimits_Result">
+          <Property Type="Int32" Name="Id_CardLimits" Nullable="false" />
+          <Property Type="Decimal" Name="InternetPaymentLim_CardLimits" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="LoanPaymentLim_CardLimits" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="GET_CardState_Result">
+          <Property Type="Int32" Name="Id_CardState" Nullable="false" />
+          <Property Type="String" Name="Value_CardState" Nullable="true" MaxLength="25" />
+        </ComplexType>
+        <ComplexType Name="GET_CardType_Result">
+          <Property Type="Int32" Name="Id_CardType" Nullable="false" />
+          <Property Type="String" Name="Value_CardType" Nullable="true" MaxLength="25" />
+        </ComplexType>
+        <ComplexType Name="GET_LoginPassword_Result">
+          <Property Type="String" Name="Value_Login" Nullable="true" MaxLength="45" />
+          <Property Type="DateTime" Name="LastSetDate_Login" Nullable="true" />
+          <Property Type="String" Name="Value_Password" Nullable="true" MaxLength="45" />
+          <Property Type="DateTime" Name="LastSetDate_Password" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GET_PaymentCompany_Result">
+          <Property Type="Int32" Name="Id_PaymentCompany" Nullable="false" />
+          <Property Type="String" Name="Name_PaymentCompany" Nullable="true" MaxLength="40" />
+        </ComplexType>
+        <ComplexType Name="GET_PrivateCardInfo_Result">
+          <Property Type="String" Name="CVV_CardPrivate" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="ExpireDate_CardPrivate" Nullable="true" MaxLength="5" />
+        </ComplexType>
+        <ComplexType Name="GET_TransactionState_Result">
+          <Property Type="Int32" Name="Id_TransactionState" Nullable="false" />
+          <Property Type="String" Name="Value_TransactionState" Nullable="true" MaxLength="25" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NeferpituBankingModelStoreContainer" CdmEntityContainer="NeferpituBankingEntities" >
+          <FunctionImportMapping FunctionImportName="CHECK__SignIn" FunctionName="NeferpituBankingModel.Store.CHECK__SignIn" />
+          <FunctionImportMapping FunctionImportName="DO__Transaction" FunctionName="NeferpituBankingModel.Store.DO__Transaction" />
+          <FunctionImportMapping FunctionImportName="Get__AccountType" FunctionName="NeferpituBankingModel.Store.Get__AccountType" />
+          <FunctionImportMapping FunctionImportName="Get__AlertType" FunctionName="NeferpituBankingModel.Store.Get__AlertType" />
+          <FunctionImportMapping FunctionImportName="Get__CardState" FunctionName="NeferpituBankingModel.Store.Get__CardState" />
+          <FunctionImportMapping FunctionImportName="Get__CardType" FunctionName="NeferpituBankingModel.Store.Get__CardType" />
+          <FunctionImportMapping FunctionImportName="Get__TransactionState" FunctionName="NeferpituBankingModel.Store.Get__TransactionState" />
+          <FunctionImportMapping FunctionImportName="GET_AccountInfo" FunctionName="NeferpituBankingModel.Store.GET_AccountInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_AccountInfo_Result">
+                <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+                <ScalarProperty Name="Name_Account" ColumnName="Name_Account" />
+                <ScalarProperty Name="Surname_Account" ColumnName="Surname_Account" />
+                <ScalarProperty Name="IsActive_Account" ColumnName="IsActive_Account" />
+                <ScalarProperty Name="PhotoURL_Account" ColumnName="PhotoURL_Account" />
+                <ScalarProperty Name="Pin_Id" ColumnName="Pin_Id" />
+                <ScalarProperty Name="AccountStatus_Id" ColumnName="AccountStatus_Id" />
+                <ScalarProperty Name="Sex_Account_Id" ColumnName="Sex_Account_Id" />
+                <ScalarProperty Name="AccountPrivate_Id" ColumnName="AccountPrivate_Id" />
+                <ScalarProperty Name="AccountType_Id" ColumnName="AccountType_Id" />
+                <ScalarProperty Name="Login_Id" ColumnName="Login_Id" />
+                <ScalarProperty Name="Password_Id" ColumnName="Password_Id" />
+                <ScalarProperty Name="Id_AccountPrivate" ColumnName="Id_AccountPrivate" />
+                <ScalarProperty Name="BDate_AccountPrivate" ColumnName="BDate_AccountPrivate" />
+                <ScalarProperty Name="City_AccountPrivate" ColumnName="City_AccountPrivate" />
+                <ScalarProperty Name="Street_AccountPrivate" ColumnName="Street_AccountPrivate" />
+                <ScalarProperty Name="Phone_AccountPrivate" ColumnName="Phone_AccountPrivate" />
+                <ScalarProperty Name="Email_AccountPrivate" ColumnName="Email_AccountPrivate" />
+                <ScalarProperty Name="PassportINN_AccountPrive" ColumnName="PassportINN_AccountPrive" />
+                <ScalarProperty Name="CommercialAccountInfo_Id" ColumnName="CommercialAccountInfo_Id" />
+                <ScalarProperty Name="Id_CommercialAccountInfo" ColumnName="Id_CommercialAccountInfo" />
+                <ScalarProperty Name="Education_CommercialAccountInfo" ColumnName="Education_CommercialAccountInfo" />
+                <ScalarProperty Name="OfficialSalary_CommercialAccountInfo" ColumnName="OfficialSalary_CommercialAccountInfo" />
+                <ScalarProperty Name="UnofficialSalary__CommercialAccountInfo" ColumnName="UnofficialSalary__CommercialAccountInfo" />
+                <ScalarProperty Name="Position_CommercialAccountInfo" ColumnName="Position_CommercialAccountInfo" />
+                <ScalarProperty Name="Id_AccountType" ColumnName="Id_AccountType" />
+                <ScalarProperty Name="Type_AccountType" ColumnName="Type_AccountType" />
+                <ScalarProperty Name="Id_Status" ColumnName="Id_Status" />
+                <ScalarProperty Name="Value_AccountStatus" ColumnName="Value_AccountStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_AllAlerts" FunctionName="NeferpituBankingModel.Store.GET_AllAlerts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_AllAlerts_Result">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Caption" ColumnName="Caption" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_AllTransactions" FunctionName="NeferpituBankingModel.Store.GET_AllTransactions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_AllTransactions_Result">
+                <ScalarProperty Name="Id_Transaction" ColumnName="Id_Transaction" />
+                <ScalarProperty Name="Value_Transaction" ColumnName="Value_Transaction" />
+                <ScalarProperty Name="Date_Transaction" ColumnName="Date_Transaction" />
+                <ScalarProperty Name="TransactionState_Id" ColumnName="TransactionState_Id" />
+                <ScalarProperty Name="CardOwner_Id" ColumnName="CardOwner_Id" />
+                <ScalarProperty Name="DestionationCard_Id" ColumnName="DestionationCard_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_AllUsersCards" FunctionName="NeferpituBankingModel.Store.GET_AllUsersCards">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_AllUsersCards_Result">
+                <ScalarProperty Name="Id_Card" ColumnName="Id_Card" />
+                <ScalarProperty Name="Code_Card" ColumnName="Code_Card" />
+                <ScalarProperty Name="BankName_Card" ColumnName="BankName_Card" />
+                <ScalarProperty Name="CardType_Id" ColumnName="CardType_Id" />
+                <ScalarProperty Name="Account_Id" ColumnName="Account_Id" />
+                <ScalarProperty Name="CardLimits_Id" ColumnName="CardLimits_Id" />
+                <ScalarProperty Name="PaymentCompany_Id" ColumnName="PaymentCompany_Id" />
+                <ScalarProperty Name="CardState_Id" ColumnName="CardState_Id" />
+                <ScalarProperty Name="CardBalance_Id" ColumnName="CardBalance_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_CardBalance" FunctionName="NeferpituBankingModel.Store.GET_CardBalance">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_CardBalance_Result">
+                <ScalarProperty Name="Id_CardBalance" ColumnName="Id_CardBalance" />
+                <ScalarProperty Name="CurrentBalance_CardBalance" ColumnName="CurrentBalance_CardBalance" />
+                <ScalarProperty Name="AvailableBalance_CardBalance" ColumnName="AvailableBalance_CardBalance" />
+                <ScalarProperty Name="Deposits_CardBalance" ColumnName="Deposits_CardBalance" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_CardLimits" FunctionName="NeferpituBankingModel.Store.GET_CardLimits">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_CardLimits_Result">
+                <ScalarProperty Name="Id_CardLimits" ColumnName="Id_CardLimits" />
+                <ScalarProperty Name="InternetPaymentLim_CardLimits" ColumnName="InternetPaymentLim_CardLimits" />
+                <ScalarProperty Name="LoanPaymentLim_CardLimits" ColumnName="LoanPaymentLim_CardLimits" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_CardState" FunctionName="NeferpituBankingModel.Store.GET_CardState">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_CardState_Result">
+                <ScalarProperty Name="Id_CardState" ColumnName="Id_CardState" />
+                <ScalarProperty Name="Value_CardState" ColumnName="Value_CardState" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_CardType" FunctionName="NeferpituBankingModel.Store.GET_CardType">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_CardType_Result">
+                <ScalarProperty Name="Id_CardType" ColumnName="Id_CardType" />
+                <ScalarProperty Name="Value_CardType" ColumnName="Value_CardType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Get_InfoPermission" FunctionName="NeferpituBankingModel.Store.Get_InfoPermission" />
+          <FunctionImportMapping FunctionImportName="GET_LoginPassword" FunctionName="NeferpituBankingModel.Store.GET_LoginPassword">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_LoginPassword_Result">
+                <ScalarProperty Name="Value_Login" ColumnName="Value_Login" />
+                <ScalarProperty Name="LastSetDate_Login" ColumnName="LastSetDate_Login" />
+                <ScalarProperty Name="Value_Password" ColumnName="Value_Password" />
+                <ScalarProperty Name="LastSetDate_Password" ColumnName="LastSetDate_Password" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_PaymentCompany" FunctionName="NeferpituBankingModel.Store.GET_PaymentCompany">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_PaymentCompany_Result">
+                <ScalarProperty Name="Id_PaymentCompany" ColumnName="Id_PaymentCompany" />
+                <ScalarProperty Name="Name_PaymentCompany" ColumnName="Name_PaymentCompany" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_PrivateCardInfo" FunctionName="NeferpituBankingModel.Store.GET_PrivateCardInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_PrivateCardInfo_Result">
+                <ScalarProperty Name="CVV_CardPrivate" ColumnName="CVV_CardPrivate" />
+                <ScalarProperty Name="ExpireDate_CardPrivate" ColumnName="ExpireDate_CardPrivate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_TransactionState" FunctionName="NeferpituBankingModel.Store.GET_TransactionState">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_TransactionState_Result">
+                <ScalarProperty Name="Id_TransactionState" ColumnName="Id_TransactionState" />
+                <ScalarProperty Name="Value_TransactionState" ColumnName="Value_TransactionState" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SET_Login" FunctionName="NeferpituBankingModel.Store.SET_Login" />
+          <FunctionImportMapping FunctionImportName="SET_Password" FunctionName="NeferpituBankingModel.Store.SET_Password" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
