@@ -59,7 +59,7 @@
 
                             <ListBoxItem >
                                 <StackPanel Orientation="Horizontal">
-                                    <Button    Foreground="White" Style="{DynamicResource MaterialDesignFlatButton}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Command="{x:Static materialDesign:Transitioner.MoveNextCommand}" >
+                                    <Button    Foreground="White" Style="{DynamicResource MaterialDesignFlatButton}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}" >
                                         Help
                                     </Button>
                                     <materialDesign:PackIcon HorizontalAlignment="Right"   Foreground="White" Height="20" Width="20" Margin="20 10" Kind="PhoneDialOutline" />

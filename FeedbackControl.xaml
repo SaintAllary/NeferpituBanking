@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="NeferpituBanking.FeedbackControl"
+                 xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NeferpituBanking"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+   
+
+    <Grid  Background="{DynamicResource PrimaryHueDarkBrush}">
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.30*"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.20*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+  
+
+        <StackPanel>
+            
+        <Button  Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">Move next</Button>
+          
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <StackPanel>
+            
+
+                <TextBox Foreground="White"  Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Caption" ></TextBox>
+               
+                <TextBox AcceptsReturn="True" Height="auto" Foreground="White"  Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Description" ></TextBox>
+                    
+            
+                <Button  Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">Send Request</Button>
+            </StackPanel>
+        </StackPanel>
+        <ListBox Grid.Column="1"  Grid.RowSpan="2">
+            <ListBox  ItemsSource="{Binding Alters}" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate >
+                        <StackPanel Margin="5" Cursor="Hand">
+                            <TextBlock Margin="0,5" FontSize="20" FontWeight="Bold"  Text="{Binding Caption}" />
+                            <TextBlock FontSize="12" Text="{Binding Path=Type}" Foreground="Black" />
+                            <TextBlock Margin="0,10,0,0" FontSize="15" Text="{Binding Path=Value}"  />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ListBox>
+    </Grid>
+</UserControl>

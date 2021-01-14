@@ -15,7 +15,7 @@
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.04*"></RowDefinition>
+            <RowDefinition Height="0.03*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -34,14 +34,20 @@
           
         </Grid>
 
-        <materialDesign:Transitioner Grid.Row="1" SelectedIndex="0" AutoApplyTransitionOrigins="True">
+        <materialDesign:Transitioner Grid.Row="1" SelectedIndex="1" AutoApplyTransitionOrigins="True">
 
-
+            <materialDesign:TransitionerSlide>
+                <materialDesign:TransitionerSlide.ForwardWipe>
+                    <materialDesign:CircleWipe/>
+                </materialDesign:TransitionerSlide.ForwardWipe>
+                <local:FeedbackControl/>
+            </materialDesign:TransitionerSlide>
 
             <Grid>
                 <local:CardControl/>
 
             </Grid>
+            
 
 
             <materialDesign:TransitionerSlide>
