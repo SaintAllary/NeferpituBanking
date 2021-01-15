@@ -92,66 +92,66 @@
       <DependentUpon>CardControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Exceptions\InvalidAuthorize.cs" />
+    <Compile Include="Exceptions\InvalidOperation.cs" />
     <Compile Include="FeedbackControl.xaml.cs">
       <DependentUpon>FeedbackControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GET_AccountInfo_Result.cs">
-      <DependentUpon>NeferpituBankng.tt</DependentUpon>
+      <DependentUpon>NeferpituData.tt</DependentUpon>
     </Compile>
     <Compile Include="GET_AllAlerts_Result.cs">
-      <DependentUpon>NeferpituBankng.tt</DependentUpon>
+      <DependentUpon>NeferpituData.tt</DependentUpon>
     </Compile>
     <Compile Include="GET_AllTransactions_Result.cs">
-      <DependentUpon>NeferpituBankng.tt</DependentUpon>
+      <DependentUpon>NeferpituData.tt</DependentUpon>
     </Compile>
     <Compile Include="GET_AllUsersCards_Result.cs">
-      <DependentUpon>NeferpituBankng.tt</DependentUpon>
+      <DependentUpon>NeferpituData.tt</DependentUpon>
     </Compile>
     <Compile Include="GET_CardBalance_Result.cs">
-      <DependentUpon>NeferpituBankng.tt</DependentUpon>
+      <DependentUpon>NeferpituData.tt</DependentUpon>
     </Compile>
     <Compile Include="GET_CardLimits_Result.cs">
-      <DependentUpon>NeferpituBankng.tt</DependentUpon>
+      <DependentUpon>NeferpituData.tt</DependentUpon>
     </Compile>
     <Compile Include="GET_CardState_Result.cs">
-      <DependentUpon>NeferpituBankng.tt</DependentUpon>
+      <DependentUpon>NeferpituData.tt</DependentUpon>
     </Compile>
     <Compile Include="GET_CardType_Result.cs">
-      <DependentUpon>NeferpituBankng.tt</DependentUpon>
+      <DependentUpon>NeferpituData.tt</DependentUpon>
     </Compile>
     <Compile Include="GET_LoginPassword_Result.cs">
-      <DependentUpon>NeferpituBankng.tt</DependentUpon>
+      <DependentUpon>NeferpituData.tt</DependentUpon>
     </Compile>
     <Compile Include="GET_PaymentCompany_Result.cs">
-      <DependentUpon>NeferpituBankng.tt</DependentUpon>
+      <DependentUpon>NeferpituData.tt</DependentUpon>
     </Compile>
     <Compile Include="GET_PrivateCardInfo_Result.cs">
-      <DependentUpon>NeferpituBankng.tt</DependentUpon>
+      <DependentUpon>NeferpituData.tt</DependentUpon>
     </Compile>
     <Compile Include="GET_TransactionState_Result.cs">
-      <DependentUpon>NeferpituBankng.tt</DependentUpon>
+      <DependentUpon>NeferpituData.tt</DependentUpon>
     </Compile>
-    <Compile Include="NeferpituBankng.Context.cs">
+    <Compile Include="NeferpituData.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NeferpituBankng.Context.tt</DependentUpon>
+      <DependentUpon>NeferpituData.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="NeferpituBankng.cs">
+    <Compile Include="NeferpituData.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NeferpituBankng.tt</DependentUpon>
+      <DependentUpon>NeferpituData.tt</DependentUpon>
     </Compile>
-    <Compile Include="NeferpituBankng.Designer.cs">
+    <Compile Include="NeferpituData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NeferpituBankng.edmx</DependentUpon>
+      <DependentUpon>NeferpituData.edmx</DependentUpon>
     </Compile>
     <Compile Include="SettingsControl.xaml.cs">
       <DependentUpon>SettingsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tables Classes\Card.cs" />
     <Compile Include="Tables Classes\CardPrivate.cs" />
-    <Compile Include="Tables Classes\TransactionOperation.cs" />
     <Compile Include="UserBanking.xaml.cs">
       <DependentUpon>UserBanking.xaml</DependentUpon>
     </Compile>
@@ -203,12 +203,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="NeferpituBankng.edmx">
+    <EntityDeploy Include="NeferpituData.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>NeferpituBankng.Designer.cs</LastGenOutput>
+      <LastGenOutput>NeferpituData.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="NeferpituBankng.edmx.diagram">
-      <DependentUpon>NeferpituBankng.edmx</DependentUpon>
+    <None Include="NeferpituData.edmx.diagram">
+      <DependentUpon>NeferpituData.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -223,15 +223,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="NeferpituBankng.Context.tt">
+    <Content Include="NeferpituData.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NeferpituBankng.edmx</DependentUpon>
-      <LastGenOutput>NeferpituBankng.Context.cs</LastGenOutput>
+      <DependentUpon>NeferpituData.edmx</DependentUpon>
+      <LastGenOutput>NeferpituData.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="NeferpituBankng.tt">
+    <Content Include="NeferpituData.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NeferpituBankng.edmx</DependentUpon>
-      <LastGenOutput>NeferpituBankng.cs</LastGenOutput>
+      <DependentUpon>NeferpituData.edmx</DependentUpon>
+      <LastGenOutput>NeferpituData.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

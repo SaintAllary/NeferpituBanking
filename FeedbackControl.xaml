@@ -25,16 +25,16 @@
 
         <StackPanel>
             
-        <Button  Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">Move next</Button>
+  
           
         </StackPanel>
-        <StackPanel Grid.Row="1">
+        <StackPanel Grid.Row="0" Grid.RowSpan="2">
             <StackPanel>
-            
 
+                <Button  Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">Card Control</Button>
                 <TextBox Foreground="White"  Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Caption" ></TextBox>
                
-                <TextBox AcceptsReturn="True" Height="auto" Foreground="White"  Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Description" ></TextBox>
+                <TextBox MaxHeight="500" AcceptsReturn="True" Height="auto" Foreground="White"  Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Description" ></TextBox>
                     
             
                 <Button  Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">Send Request</Button>

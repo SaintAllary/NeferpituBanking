@@ -41,7 +41,7 @@ namespace NeferpituBanking
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CHECK__SignIn", loginParameter, passwordParameter, user_signed_Id);
         }
     
-        public virtual int DO__Transaction(Nullable<decimal> value, Nullable<int> cardOwner_Id, Nullable<int> destinationCard_Id)
+        public virtual int DO__Transaction(Nullable<decimal> value, Nullable<int> cardOwner_Id, string destinationCardCode)
         {
             var valueParameter = value.HasValue ?
                 new ObjectParameter("Value", value) :
@@ -51,11 +51,11 @@ namespace NeferpituBanking
                 new ObjectParameter("CardOwner_Id", cardOwner_Id) :
                 new ObjectParameter("CardOwner_Id", typeof(int));
     
-            var destinationCard_IdParameter = destinationCard_Id.HasValue ?
-                new ObjectParameter("DestinationCard_Id", destinationCard_Id) :
-                new ObjectParameter("DestinationCard_Id", typeof(int));
+            var destinationCardCodeParameter = destinationCardCode != null ?
+                new ObjectParameter("DestinationCardCode", destinationCardCode) :
+                new ObjectParameter("DestinationCardCode", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DO__Transaction", valueParameter, cardOwner_IdParameter, destinationCard_IdParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DO__Transaction", valueParameter, cardOwner_IdParameter, destinationCardCodeParameter);
         }
     
         public virtual ObjectResult<string> Get__AccountType(Nullable<int> iD)
@@ -186,6 +186,15 @@ namespace NeferpituBanking
                 new ObjectParameter("Password", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_CardBalance_Result>("GET_CardBalance", cardBalanceIdParameter, loginParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<string> GET_CardCodeById(Nullable<int> cardId)
+        {
+            var cardIdParameter = cardId.HasValue ?
+                new ObjectParameter("CardId", cardId) :
+                new ObjectParameter("CardId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("GET_CardCodeById", cardIdParameter);
         }
     
         public virtual ObjectResult<GET_CardLimits_Result> GET_CardLimits(Nullable<int> cardLimitsId, string login, string password)

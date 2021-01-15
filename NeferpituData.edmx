@@ -13,7 +13,7 @@
         <Function Name="DO__Transaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Value" Type="money" Mode="In" />
           <Parameter Name="CardOwner_Id" Type="int" Mode="In" />
-          <Parameter Name="DestinationCard_Id" Type="int" Mode="In" />
+          <Parameter Name="DestinationCardCode" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="Get__AccountType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
@@ -54,6 +54,9 @@
           <Parameter Name="CardBalanceId" Type="int" Mode="In" />
           <Parameter Name="Login" Type="nvarchar" Mode="In" />
           <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GET_CardCodeById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CardId" Type="int" Mode="In" />
         </Function>
         <Function Name="GET_CardLimits" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CardLimitsId" Type="int" Mode="In" />
@@ -113,7 +116,7 @@
           <FunctionImport Name="DO__Transaction">
             <Parameter Name="Value" Mode="In" Type="Decimal" />
             <Parameter Name="CardOwner_Id" Mode="In" Type="Int32" />
-            <Parameter Name="DestinationCard_Id" Mode="In" Type="Int32" />
+            <Parameter Name="DestinationCardCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Get__AccountType" ReturnType="Collection(String)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
@@ -154,6 +157,9 @@
             <Parameter Name="CardBalanceId" Mode="In" Type="Int32" />
             <Parameter Name="Login" Mode="In" Type="String" />
             <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_CardCodeById" ReturnType="Collection(String)">
+            <Parameter Name="CardId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GET_CardLimits" ReturnType="Collection(NeferpituBankingModel.GET_CardLimits_Result)">
             <Parameter Name="CardLimitsId" Mode="In" Type="Int32" />
@@ -232,8 +238,8 @@
         </ComplexType>
         <ComplexType Name="GET_AllAlerts_Result">
           <Property Type="String" Name="Type" Nullable="true" MaxLength="25" />
-          <Property Type="String" Name="Caption" Nullable="true" MaxLength="25" />
-          <Property Type="String" Name="Value" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Caption" Nullable="true" MaxLength="45" />
+          <Property Type="String" Name="Value" Nullable="true" MaxLength="200" />
         </ComplexType>
         <ComplexType Name="GET_AllTransactions_Result">
           <Property Type="Int32" Name="Id_Transaction" Nullable="false" />
@@ -241,7 +247,7 @@
           <Property Type="DateTime" Name="Date_Transaction" Nullable="true" Precision="23" />
           <Property Type="Int32" Name="TransactionState_Id" Nullable="true" />
           <Property Type="Int32" Name="CardOwner_Id" Nullable="true" />
-          <Property Type="Int32" Name="DestionationCard_Id" Nullable="true" />
+          <Property Type="String" Name="DestionationCard_Transaction" Nullable="true" MaxLength="20" />
         </ComplexType>
         <ComplexType Name="GET_AllUsersCards_Result">
           <Property Type="Int32" Name="Id_Card" Nullable="false" />
@@ -356,7 +362,7 @@
                 <ScalarProperty Name="Date_Transaction" ColumnName="Date_Transaction" />
                 <ScalarProperty Name="TransactionState_Id" ColumnName="TransactionState_Id" />
                 <ScalarProperty Name="CardOwner_Id" ColumnName="CardOwner_Id" />
-                <ScalarProperty Name="DestionationCard_Id" ColumnName="DestionationCard_Id" />
+                <ScalarProperty Name="DestionationCard_Transaction" ColumnName="DestionationCard_Transaction" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -385,6 +391,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_CardCodeById" FunctionName="NeferpituBankingModel.Store.GET_CardCodeById" />
           <FunctionImportMapping FunctionImportName="GET_CardLimits" FunctionName="NeferpituBankingModel.Store.GET_CardLimits">
             <ResultMapping>
               <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_CardLimits_Result">

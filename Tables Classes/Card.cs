@@ -30,7 +30,7 @@ namespace NeferpituBanking.Tables_Classes
             this.CardPrivate = cardPrivate;
 
             //CardPrivate.ExpireDate_CardPrivate
-            Transctions = new ObservableCollection<GET_AllTransactions_Result>();
+            Transctions = new ObservableCollection<GET_AllTransactions_Result>() {};
         }
 
         public override string ToString()

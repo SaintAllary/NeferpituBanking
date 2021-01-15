@@ -18,58 +18,15 @@
         </Grid.RowDefinitions>
        
             <materialDesign:Card Background="{DynamicResource PrimaryHueMidBrush}" Grid.Row="1" Grid.Column="0" Margin="1" >
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="5" FontSize="14" FontWeight="Bold"  Foreground="White">Name:</TextBlock>
-                        <TextBlock Margin="5"  FontSize="14"   Foreground="White">VALUE</TextBlock>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="5" FontSize="14" FontWeight="Bold"  Foreground="White">Surname:</TextBlock>
-                        <TextBlock Margin="5"  FontSize="14"   Foreground="White">VALUE</TextBlock>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="5" FontSize="14" FontWeight="Bold"  Foreground="White">Sex:</TextBlock>
-                        <TextBlock Margin="5"  FontSize="14"   Foreground="White">VALUE</TextBlock>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="5" FontSize="14" FontWeight="Bold"  Foreground="White">Status:</TextBlock>
-                        <TextBlock Margin="5"  FontSize="14"   Foreground="White">VALUE</TextBlock>
-                    </StackPanel>
-     
-
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="5" FontSize="14" FontWeight="Bold"  Foreground="White">Birthday:</TextBlock>
-                    <TextBlock Margin="5"  FontSize="14"   Foreground="White">VALUE</TextBlock>
-                  </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="5" FontSize="14" FontWeight="Bold"  Foreground="White">City:</TextBlock>
-                        <TextBlock Margin="5"  FontSize="14"   Foreground="White">VALUE</TextBlock>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="5" FontSize="14" FontWeight="Bold"  Foreground="White">Street:</TextBlock>
-                        <TextBlock Margin="5"  FontSize="14"   Foreground="White">VALUE</TextBlock>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="5" FontSize="14" FontWeight="Bold"  Foreground="White">Phone:</TextBlock>
-                        <TextBlock Margin="5"  FontSize="14"   Foreground="White">VALUE</TextBlock>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="5" FontSize="14" FontWeight="Bold"  Foreground="White">Email:</TextBlock>
-                        <TextBlock Margin="5"  FontSize="14"   Foreground="White">VALUE</TextBlock>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="5" FontSize="14" FontWeight="Bold"  Foreground="White">Code:</TextBlock>
-                        <TextBlock Margin="5"  FontSize="14"   Foreground="White">VALUE</TextBlock>
-                    </StackPanel>
-                </StackPanel>
+             
             </materialDesign:Card>
 
         <StackPanel Grid.Column="0" VerticalAlignment="Top">
             <materialDesign:Card  Background="{DynamicResource PrimaryHueMidBrush}">
                 <StackPanel>
-            <TextBox Foreground="White" Margin="0,5" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Old password"></TextBox>
-                    <TextBox   Margin="0,5"  Foreground="White"  Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"  materialDesign:HintAssist.Hint="New password"></TextBox>
-                    <Button  >Change</Button>
+            <TextBox Foreground="White" Margin="0,5" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Old password" Text="{Binding OldPassword}"></TextBox>
+                    <TextBox   Margin="0,5"  Foreground="White"  Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"  materialDesign:HintAssist.Hint="New password" Text="{Binding NewPassword}"></TextBox>
+                    <Button Command="{Binding ChangePass}" >Change</Button>
                 </StackPanel>
             </materialDesign:Card>
         </StackPanel>

@@ -18,6 +18,6 @@ namespace NeferpituBanking
         public Nullable<System.DateTime> Date_Transaction { get; set; }
         public Nullable<int> TransactionState_Id { get; set; }
         public Nullable<int> CardOwner_Id { get; set; }
-        public Nullable<int> DestionationCard_Id { get; set; }
+        public string DestionationCard_Transaction { get; set; }
     }
 }
