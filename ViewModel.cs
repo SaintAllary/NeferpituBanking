@@ -401,6 +401,7 @@ namespace NeferpituBanking
             Feedbacks = new ObservableCollection<Feedback>();
             DestinationCard = null;
             MoneyValue = null;
+            ChangeHistory = new ObservableCollection<GET_LoginPasswordHistory_Result>();
 
         }
         private async void loadtotalAsync(ObjectParameter objectParameter)
