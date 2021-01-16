@@ -17,21 +17,38 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
        
-            <materialDesign:Card Background="{DynamicResource PrimaryHueMidBrush}" Grid.Row="1" Grid.Column="0" Margin="1" >
-             
-            </materialDesign:Card>
+           
 
-        <StackPanel Grid.Column="0" VerticalAlignment="Top">
+        <StackPanel Grid.Column="0" VerticalAlignment="Top" Grid.RowSpan="2">
             <materialDesign:Card  Background="{DynamicResource PrimaryHueMidBrush}">
                 <StackPanel>
-            <TextBox Foreground="White" Margin="0,5" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Old password" Text="{Binding OldPassword}"></TextBox>
-                    <TextBox   Margin="0,5"  Foreground="White"  Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"  materialDesign:HintAssist.Hint="New password" Text="{Binding NewPassword}"></TextBox>
-                    <Button Command="{Binding ChangePass}" >Change</Button>
+                  <TextBox Foreground="White" Margin="0,5" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Old password" Text="{Binding OldPassword}"></TextBox>
+                  <TextBox   Margin="0,5"  Foreground="White"  Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"  materialDesign:HintAssist.Hint="New password" Text="{Binding NewPassword}"></TextBox>
+                  <Button Command="{Binding ChangePass}" >Change</Button>
                 </StackPanel>
             </materialDesign:Card>
+          
+                <StackPanel>
+                 <Button VerticalAlignment="Bottom" Grid.Column="0"  Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}">Card Control</Button>
+
+                <ScrollViewer Background="{DynamicResource PrimaryHueDarkBrush}"  VerticalScrollBarVisibility="Visible"  >
+                   
+                    <ListBox  ItemsSource="{Binding Alters}" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate >
+                                <StackPanel Margin="10" Cursor="Hand">
+                                    <TextBlock Margin="0,5" FontSize="20" FontWeight="Bold"  Text="{Binding Caption}" />
+                                    <TextBlock  FontSize="12" Text="{Binding Path=Type}" Foreground="Black" />
+                                    <TextBlock TextWrapping="Wrap" Margin="0,10,0,0" FontSize="15" Text="{Binding Path=Value}"  />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                
+                </ScrollViewer>
+                </StackPanel>
         </StackPanel>
-        <Button VerticalAlignment="Bottom" Grid.Column="0"  Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}">Card Control</Button>
-        <ScrollViewer  Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" VerticalScrollBarVisibility="Auto">
+        <ScrollViewer  Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" VerticalScrollBarVisibility="Visible">
             <ListBox  ItemsSource="{Binding Alters}" >
                 <ListBox.ItemTemplate>
                     <DataTemplate >
