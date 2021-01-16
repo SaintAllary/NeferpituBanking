@@ -22,36 +22,32 @@
         </Grid.RowDefinitions>
         
   
-
-        <StackPanel>
-            
-  
-          
-        </StackPanel>
         <StackPanel Grid.Row="0" Grid.RowSpan="2">
             <StackPanel>
 
                 <Button  Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">Card Control</Button>
-                <TextBox Foreground="White"  Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Caption" ></TextBox>
-               
-                <TextBox MaxHeight="500" AcceptsReturn="True" Height="auto" Foreground="White"  Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Description" ></TextBox>
-                    
-            
-                <Button  Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">Send Request</Button>
+                <TextBox Foreground="White"  Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Caption"  Text="{Binding CaptionFeedBack}"></TextBox>
+
+                <TextBox MaxHeight="500" AcceptsReturn="True" Height="auto" Foreground="White"  Text="{Binding DescriptionFeedBack}"  Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" materialDesign:HintAssist.Hint="Description" ></TextBox>
+
+
+                <Button  Command="{Binding SendRequest}">Send Request</Button>
             </StackPanel>
         </StackPanel>
-        <ListBox Grid.Column="1"  Grid.RowSpan="2">
-            <ListBox  ItemsSource="{Binding Alters}" >
+        <ScrollViewer  Grid.Column="1"  Grid.RowSpan="3" >
+            <ListBox ItemsSource="{Binding Feedbacks}" HorizontalAlignment="Stretch" >
                 <ListBox.ItemTemplate>
                     <DataTemplate >
-                        <StackPanel Margin="0,5" Cursor="Hand">
-                            <TextBlock Margin="0,5" FontSize="20" FontWeight="Bold"  Text="{Binding Caption}" />
-                            <TextBlock FontSize="12" Text="{Binding Path=Type}" Foreground="Black" />
-                            <TextBlock TextWrapping="Wrap"  Margin="0,10,0,0" FontSize="15" Text="{Binding Path=Value}"  />
+                        <StackPanel Orientation="Vertical" Margin="0,5" Cursor="Hand">
+                           
+                                
+                         <TextBlock FontWeight="Bold" TextWrapping="Wrap"  Margin="0,10,0,10" FontSize="20" Text="{Binding Caption_CustomerRequest}"  />
+                        <TextBlock FontSize="15" Text="{Binding Desciption_CustomerRequest}" Foreground="Black" />
+                        <TextBlock  Margin="0,10,0,0" VerticalAlignment="Center"  FontSize="12"   Text="{Binding Date_CustomerRequest}" />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-        </ListBox>
+        </ScrollViewer>
     </Grid>
 </UserControl>

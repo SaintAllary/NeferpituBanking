@@ -41,6 +41,31 @@ namespace NeferpituBanking
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CHECK__SignIn", loginParameter, passwordParameter, user_signed_Id);
         }
     
+        public virtual int DO__SendFeedbackRequest(Nullable<int> userId, string caption, string description, string login, string password)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(int));
+    
+            var captionParameter = caption != null ?
+                new ObjectParameter("Caption", caption) :
+                new ObjectParameter("Caption", typeof(string));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("Description", description) :
+                new ObjectParameter("Description", typeof(string));
+    
+            var loginParameter = login != null ?
+                new ObjectParameter("Login", login) :
+                new ObjectParameter("Login", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DO__SendFeedbackRequest", userIdParameter, captionParameter, descriptionParameter, loginParameter, passwordParameter);
+        }
+    
         public virtual int DO__Transaction(Nullable<decimal> value, Nullable<int> cardOwner_Id, string destinationCardCode)
         {
             var valueParameter = value.HasValue ?
@@ -232,6 +257,23 @@ namespace NeferpituBanking
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_CardType_Result>("GET_CardType", cardTypeIdParameter);
         }
     
+        public virtual ObjectResult<GET_Feedbacks_Result> GET_Feedbacks(Nullable<int> userId, string login, string password)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(int));
+    
+            var loginParameter = login != null ?
+                new ObjectParameter("Login", login) :
+                new ObjectParameter("Login", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_Feedbacks_Result>("GET_Feedbacks", userIdParameter, loginParameter, passwordParameter);
+        }
+    
         public virtual int Get_InfoPermission(string login, string password, ObjectParameter output)
         {
             var loginParameter = login != null ?
@@ -258,6 +300,23 @@ namespace NeferpituBanking
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LoginPassword_Result>("GET_LoginPassword", loginParameter, passwordParameter);
         }
     
+        public virtual ObjectResult<GET_LoginPasswordHistory_Result> GET_LoginPasswordHistory(Nullable<int> userId, string login, string password)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(int));
+    
+            var loginParameter = login != null ?
+                new ObjectParameter("Login", login) :
+                new ObjectParameter("Login", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LoginPasswordHistory_Result>("GET_LoginPasswordHistory", userIdParameter, loginParameter, passwordParameter);
+        }
+    
         public virtual ObjectResult<GET_PaymentCompany_Result> GET_PaymentCompany(Nullable<int> companyId)
         {
             var companyIdParameter = companyId.HasValue ?
@@ -282,6 +341,23 @@ namespace NeferpituBanking
                 new ObjectParameter("Password", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_PrivateCardInfo_Result>("GET_PrivateCardInfo", card_idParameter, loginParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<GET_Requests_Result> GET_Requests(Nullable<int> userId, string login, string password)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(int));
+    
+            var loginParameter = login != null ?
+                new ObjectParameter("Login", login) :
+                new ObjectParameter("Login", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_Requests_Result>("GET_Requests", userIdParameter, loginParameter, passwordParameter);
         }
     
         public virtual ObjectResult<GET_TransactionState_Result> GET_TransactionState(Nullable<int> transactionStateId)

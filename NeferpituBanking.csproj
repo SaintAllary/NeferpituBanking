@@ -120,6 +120,12 @@
     <Compile Include="GET_CardType_Result.cs">
       <DependentUpon>NeferpituData.tt</DependentUpon>
     </Compile>
+    <Compile Include="GET_Feedbacks_Result.cs">
+      <DependentUpon>NeferpituData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GET_LoginPasswordHistory_Result.cs">
+      <DependentUpon>NeferpituData.tt</DependentUpon>
+    </Compile>
     <Compile Include="GET_LoginPassword_Result.cs">
       <DependentUpon>NeferpituData.tt</DependentUpon>
     </Compile>
@@ -127,6 +133,9 @@
       <DependentUpon>NeferpituData.tt</DependentUpon>
     </Compile>
     <Compile Include="GET_PrivateCardInfo_Result.cs">
+      <DependentUpon>NeferpituData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GET_Requests_Result.cs">
       <DependentUpon>NeferpituData.tt</DependentUpon>
     </Compile>
     <Compile Include="GET_TransactionState_Result.cs">
@@ -152,6 +161,7 @@
     </Compile>
     <Compile Include="Tables Classes\Card.cs" />
     <Compile Include="Tables Classes\CardPrivate.cs" />
+    <Compile Include="Tables Classes\Feedback.cs" />
     <Compile Include="UserBanking.xaml.cs">
       <DependentUpon>UserBanking.xaml</DependentUpon>
     </Compile>

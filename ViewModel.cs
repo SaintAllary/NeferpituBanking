@@ -39,8 +39,6 @@ namespace NeferpituBanking
             }
         }
 
-
-
         private ObservableCollection<GET_AllAlerts_Result> alters;
         public ObservableCollection<GET_AllAlerts_Result> Alters {
             get => alters;
@@ -50,7 +48,6 @@ namespace NeferpituBanking
                 OnPropertyChanged(nameof(Alters));
             }
         }
-
         private GET_AccountInfo_Result userInfo { get; set; }
         public GET_AccountInfo_Result UserInfo { 
             get => userInfo;
@@ -62,9 +59,7 @@ namespace NeferpituBanking
                 OnPropertyChanged(nameof(UserInfo));
             }
         }
-
         private long userId;
-
         private long UserId {
             get => userId;
             set
@@ -73,6 +68,31 @@ namespace NeferpituBanking
                 
             }
         }
+
+
+        private string captionFeedBack;
+        public string CaptionFeedBack
+        {
+            get => captionFeedBack;
+            set
+            {
+                captionFeedBack = value;
+                OnPropertyChanged(nameof(captionFeedBack));
+            }
+        }
+
+        private string descriptionFeedBack;
+        public string DescriptionFeedBack
+        {
+            get => descriptionFeedBack;
+            set
+            {
+                descriptionFeedBack = value;
+                OnPropertyChanged(nameof(descriptionFeedBack));
+            }
+        }
+
+
 
         private string password;
         public string Password
@@ -97,7 +117,6 @@ namespace NeferpituBanking
         }
 
         private ObservableCollection<Card> cards;
-
         public ObservableCollection<Card> Cards
         {
             get => cards; set
@@ -106,8 +125,25 @@ namespace NeferpituBanking
                 OnPropertyChanged(nameof(Cards));
             }
         }
+        private ObservableCollection<Feedback> feedbacks;
+        public ObservableCollection<Feedback> Feedbacks
+        {
+            get => feedbacks; set
+            {
+                feedbacks = value;
+                OnPropertyChanged(nameof(feedbacks));
+            }
+        }
 
-
+        private ObservableCollection<GET_LoginPasswordHistory_Result> changeHistory;
+        public ObservableCollection<GET_LoginPasswordHistory_Result> ChangeHistory
+        {
+            get => changeHistory; set
+            {
+                changeHistory = value;
+                OnPropertyChanged(nameof(changeHistory));
+            }
+        }
         private Card currentCard;
         public Card CurrentCard
         {
@@ -129,8 +165,6 @@ namespace NeferpituBanking
                 OnPropertyChanged(nameof(DestinationCard));
             }
         }
-
-
         public Nullable<decimal> moneyValue { get; set; }
         public Nullable<decimal> MoneyValue
         {
@@ -140,47 +174,18 @@ namespace NeferpituBanking
                 OnPropertyChanged(nameof(MoneyValue));
             }
         }
-
         public ViewModel()
         {
+            ChangeHistory = new ObservableCollection<GET_LoginPasswordHistory_Result>();
             Cards = new ObservableCollection<Card>();
             Alters = new ObservableCollection<GET_AllAlerts_Result>();
+            Feedbacks = new ObservableCollection<Feedback>();
             DestinationCard = null;
             MoneyValue = null;
             NewPassword = null;
             OldPassword = null;
 
         }
-        public ICommand SendMoney => new RelayCommand(() =>
-        {
-            try
-            {
-             
-                var valuw =  DO__Transaction(this.MoneyValue, this.CurrentCard.Id_Card, this.DestinationCard.ToString());
-               
-
-                if (valuw<0)
-                {
-                    throw new InvalidOperation();
-                }
-                else
-                {
-                    clearAllValues();
-                    loadTotalInfo(this.UserIdObj);
-
-                }
-                
-        
-        
-
-
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-        });
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
@@ -198,6 +203,40 @@ namespace NeferpituBanking
             }
         }
 
+        public ICommand SendMoney => new RelayCommand(() =>
+        {
+            try
+            {
+                if(this.DestinationCard.ToString().Length == 15)
+                {
+                    var valuw = DO__Transaction(this.MoneyValue, this.CurrentCard.Id_Card, this.DestinationCard.ToString());
+
+
+
+                    if (valuw < 0)
+                    {
+                        throw new InvalidOperation();
+                    }
+                    else
+                    {
+
+                        reloadData();
+                    }
+                }
+                else
+                    throw new InvalidOperation();
+
+
+
+
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        });
         public ICommand UserSignIn => new RelayCommand(() =>
          {
            
@@ -233,7 +272,27 @@ namespace NeferpituBanking
              
 
          });
+        public ICommand SendRequest => new RelayCommand(() =>
+        {
+            try
+            {
+         
+                if (this.CaptionFeedBack.Length <= 20 && this.DescriptionFeedBack.Length <= 200)
+                {
+                    DO__SendFeedbackRequest(Convert.ToInt32(this.UserIdObj.Value), this.CaptionFeedBack, this.DescriptionFeedBack, this.Login, this.Password);
+                    reloadData();
+                }
+                else
+                    throw new InvalidOperation();
+            }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show(ex.Message);
+            }
+          
+          
+        });
         public ICommand ChangePass => new RelayCommand(() =>
         {
             try
@@ -244,6 +303,7 @@ namespace NeferpituBanking
                     this.OldPassword = null;
                     this.Password = NewPassword;
                     this.NewPassword = null;
+                    reloadData();
                     MessageBox.Show("Succesess!");
                }
                else
@@ -268,14 +328,37 @@ namespace NeferpituBanking
 
             loadAlerts(objectParameter);
             loadAccountInfo(objectParameter);
+            loadRequestFeedack();
+            loadHistory();
             GC.Collect();
         }
+        private void loadRequestFeedack()
+        {
+            List<Feedback> sortableDatas = new List<Feedback>();
+            foreach(var item in GET_Feedbacks(Convert.ToInt32(this.UserIdObj.Value), this.Login, this.Password))
+            {
+                sortableDatas.Add(new Feedback(item));
+            }
+            foreach(var item in GET_Requests(Convert.ToInt32(this.UserIdObj.Value), this.Login, this.Password)){
+                sortableDatas.Add(new Feedback(item));
+            }
+
+            sortableDatas.Sort();
+            sortableDatas.ForEach(x => Feedbacks.Add(x));
+           
+
+        }
+
+
         private void loadAlerts(ObjectParameter objectParameter)
         {
-            foreach(var item in GET_AllAlerts(Convert.ToInt32(objectParameter.Value), this.Login, this.Password))
+            var alerts = GET_AllAlerts(Convert.ToInt32(objectParameter.Value), this.Login, this.Password).ToList();
+            alerts.Reverse();
+            foreach (var item in alerts)
             {
                 Alters.Add(item);
             }
+     
         }
         private void loadCurrentCards(ObjectParameter objectParameter)
         {
@@ -315,6 +398,7 @@ namespace NeferpituBanking
 
             Cards = new ObservableCollection<Card>();
             Alters = new ObservableCollection<GET_AllAlerts_Result>();
+            Feedbacks = new ObservableCollection<Feedback>();
             DestinationCard = null;
             MoneyValue = null;
 
@@ -323,6 +407,24 @@ namespace NeferpituBanking
         {
            
              await new Task(() => this.loadTotalInfo(objectParameter));
+        }
+
+        private void reloadData()
+        {
+            clearAllValues();
+            loadTotalInfo(this.UserIdObj);
+        }
+
+        private void loadHistory()
+        {
+            List<GET_LoginPasswordHistory_Result> df = new List<GET_LoginPasswordHistory_Result>();
+            foreach (var item in GET_LoginPasswordHistory(Convert.ToInt32(this.UserIdObj.Value), this.Login, this.Password))
+                df.Add(item);
+
+            df.Reverse();
+            df.ForEach(x => ChangeHistory.Add(x));
+
+
         }
     }
 }

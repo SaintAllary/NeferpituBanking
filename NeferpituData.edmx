@@ -10,6 +10,13 @@
           <Parameter Name="Password" Type="nvarchar" Mode="In" />
           <Parameter Name="User_signed_Id" Type="int" Mode="InOut" />
         </Function>
+        <Function Name="DO__SendFeedbackRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="Caption" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="DO__Transaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Value" Type="money" Mode="In" />
           <Parameter Name="CardOwner_Id" Type="int" Mode="In" />
@@ -69,6 +76,11 @@
         <Function Name="GET_CardType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CardTypeId" Type="int" Mode="In" />
         </Function>
+        <Function Name="GET_Feedbacks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="Get_InfoPermission" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Login" Type="nvarchar" Mode="In" />
           <Parameter Name="Password" Type="nvarchar" Mode="In" />
@@ -78,11 +90,21 @@
           <Parameter Name="Login" Type="nvarchar" Mode="In" />
           <Parameter Name="Password" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="GET_LoginPasswordHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="GET_PaymentCompany" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CompanyId" Type="int" Mode="In" />
         </Function>
         <Function Name="GET_PrivateCardInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Card_id" Type="bigint" Mode="In" />
+          <Parameter Name="Login" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GET_Requests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
           <Parameter Name="Login" Type="nvarchar" Mode="In" />
           <Parameter Name="Password" Type="nvarchar" Mode="In" />
         </Function>
@@ -112,6 +134,13 @@
             <Parameter Name="Login" Mode="In" Type="String" />
             <Parameter Name="Password" Mode="In" Type="String" />
             <Parameter Name="User_signed_Id" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DO__SendFeedbackRequest">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="Caption" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="DO__Transaction">
             <Parameter Name="Value" Mode="In" Type="Decimal" />
@@ -172,6 +201,11 @@
           <FunctionImport Name="GET_CardType" ReturnType="Collection(NeferpituBankingModel.GET_CardType_Result)">
             <Parameter Name="CardTypeId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="GET_Feedbacks" ReturnType="Collection(NeferpituBankingModel.GET_Feedbacks_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="Get_InfoPermission">
             <Parameter Name="Login" Mode="In" Type="String" />
             <Parameter Name="Password" Mode="In" Type="String" />
@@ -181,11 +215,21 @@
             <Parameter Name="Login" Mode="In" Type="String" />
             <Parameter Name="Password" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="GET_LoginPasswordHistory" ReturnType="Collection(NeferpituBankingModel.GET_LoginPasswordHistory_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="GET_PaymentCompany" ReturnType="Collection(NeferpituBankingModel.GET_PaymentCompany_Result)">
             <Parameter Name="CompanyId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GET_PrivateCardInfo" ReturnType="Collection(NeferpituBankingModel.GET_PrivateCardInfo_Result)">
             <Parameter Name="Card_id" Mode="In" Type="Int64" />
+            <Parameter Name="Login" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_Requests" ReturnType="Collection(NeferpituBankingModel.GET_Requests_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
             <Parameter Name="Login" Mode="In" Type="String" />
             <Parameter Name="Password" Mode="In" Type="String" />
           </FunctionImport>
@@ -279,11 +323,23 @@
           <Property Type="Int32" Name="Id_CardType" Nullable="false" />
           <Property Type="String" Name="Value_CardType" Nullable="true" MaxLength="25" />
         </ComplexType>
+        <ComplexType Name="GET_Feedbacks_Result">
+          <Property Type="Int32" Name="Id_SupportCustomerChat" Nullable="false" />
+          <Property Type="String" Name="Answer_SupportResponse" Nullable="true" MaxLength="300" />
+          <Property Type="DateTime" Name="Date_SupportResponse" Nullable="true" Precision="23" />
+        </ComplexType>
         <ComplexType Name="GET_LoginPassword_Result">
           <Property Type="String" Name="Value_Login" Nullable="true" MaxLength="45" />
           <Property Type="DateTime" Name="LastSetDate_Login" Nullable="true" />
           <Property Type="String" Name="Value_Password" Nullable="true" MaxLength="45" />
           <Property Type="DateTime" Name="LastSetDate_Password" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GET_LoginPasswordHistory_Result">
+          <Property Type="Int32" Name="Id_LoginPasswordHistory" Nullable="false" />
+          <Property Type="String" Name="Caption_LoginPasswordHistory" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Description_LoginPasswordHistory" Nullable="true" MaxLength="70" />
+          <Property Type="DateTime" Name="Date_LoginPasswordHistory" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="LoginPasswordHistory_Account_Id" Nullable="true" />
         </ComplexType>
         <ComplexType Name="GET_PaymentCompany_Result">
           <Property Type="Int32" Name="Id_PaymentCompany" Nullable="false" />
@@ -292,6 +348,12 @@
         <ComplexType Name="GET_PrivateCardInfo_Result">
           <Property Type="String" Name="CVV_CardPrivate" Nullable="true" MaxLength="3" />
           <Property Type="String" Name="ExpireDate_CardPrivate" Nullable="true" MaxLength="5" />
+        </ComplexType>
+        <ComplexType Name="GET_Requests_Result">
+          <Property Type="Int32" Name="Id_SupportCustomerChat" Nullable="false" />
+          <Property Type="String" Name="Caption_CustomerRequest" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Desciption_CustomerRequest" Nullable="true" MaxLength="300" />
+          <Property Type="DateTime" Name="Date_CustomerRequest" Nullable="true" Precision="23" />
         </ComplexType>
         <ComplexType Name="GET_TransactionState_Result">
           <Property Type="Int32" Name="Id_TransactionState" Nullable="false" />
@@ -304,6 +366,7 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="NeferpituBankingModelStoreContainer" CdmEntityContainer="NeferpituBankingEntities" >
           <FunctionImportMapping FunctionImportName="CHECK__SignIn" FunctionName="NeferpituBankingModel.Store.CHECK__SignIn" />
+          <FunctionImportMapping FunctionImportName="DO__SendFeedbackRequest" FunctionName="NeferpituBankingModel.Store.DO__SendFeedbackRequest" />
           <FunctionImportMapping FunctionImportName="DO__Transaction" FunctionName="NeferpituBankingModel.Store.DO__Transaction" />
           <FunctionImportMapping FunctionImportName="Get__AccountType" FunctionName="NeferpituBankingModel.Store.Get__AccountType" />
           <FunctionImportMapping FunctionImportName="Get__AlertType" FunctionName="NeferpituBankingModel.Store.Get__AlertType" />
@@ -417,6 +480,15 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_Feedbacks" FunctionName="NeferpituBankingModel.Store.GET_Feedbacks">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_Feedbacks_Result">
+                <ScalarProperty Name="Id_SupportCustomerChat" ColumnName="Id_SupportCustomerChat" />
+                <ScalarProperty Name="Answer_SupportResponse" ColumnName="Answer_SupportResponse" />
+                <ScalarProperty Name="Date_SupportResponse" ColumnName="Date_SupportResponse" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Get_InfoPermission" FunctionName="NeferpituBankingModel.Store.Get_InfoPermission" />
           <FunctionImportMapping FunctionImportName="GET_LoginPassword" FunctionName="NeferpituBankingModel.Store.GET_LoginPassword">
             <ResultMapping>
@@ -425,6 +497,17 @@
                 <ScalarProperty Name="LastSetDate_Login" ColumnName="LastSetDate_Login" />
                 <ScalarProperty Name="Value_Password" ColumnName="Value_Password" />
                 <ScalarProperty Name="LastSetDate_Password" ColumnName="LastSetDate_Password" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_LoginPasswordHistory" FunctionName="NeferpituBankingModel.Store.GET_LoginPasswordHistory">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_LoginPasswordHistory_Result">
+                <ScalarProperty Name="Id_LoginPasswordHistory" ColumnName="Id_LoginPasswordHistory" />
+                <ScalarProperty Name="Caption_LoginPasswordHistory" ColumnName="Caption_LoginPasswordHistory" />
+                <ScalarProperty Name="Description_LoginPasswordHistory" ColumnName="Description_LoginPasswordHistory" />
+                <ScalarProperty Name="Date_LoginPasswordHistory" ColumnName="Date_LoginPasswordHistory" />
+                <ScalarProperty Name="LoginPasswordHistory_Account_Id" ColumnName="LoginPasswordHistory_Account_Id" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -441,6 +524,16 @@
               <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_PrivateCardInfo_Result">
                 <ScalarProperty Name="CVV_CardPrivate" ColumnName="CVV_CardPrivate" />
                 <ScalarProperty Name="ExpireDate_CardPrivate" ColumnName="ExpireDate_CardPrivate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_Requests" FunctionName="NeferpituBankingModel.Store.GET_Requests">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeferpituBankingModel.GET_Requests_Result">
+                <ScalarProperty Name="Id_SupportCustomerChat" ColumnName="Id_SupportCustomerChat" />
+                <ScalarProperty Name="Caption_CustomerRequest" ColumnName="Caption_CustomerRequest" />
+                <ScalarProperty Name="Desciption_CustomerRequest" ColumnName="Desciption_CustomerRequest" />
+                <ScalarProperty Name="Date_CustomerRequest" ColumnName="Date_CustomerRequest" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
