@@ -277,7 +277,7 @@ namespace NeferpituBanking
             try
             {
          
-                if (this.CaptionFeedBack.Length <= 20 && this.DescriptionFeedBack.Length <= 200)
+                if (this.CaptionFeedBack !=null & this.DescriptionFeedBack!=null &&this.CaptionFeedBack.Length <= 20 && this.DescriptionFeedBack.Length <= 200)
                 {
                     DO__SendFeedbackRequest(Convert.ToInt32(this.UserIdObj.Value), this.CaptionFeedBack, this.DescriptionFeedBack, this.Login, this.Password);
                     reloadData();
