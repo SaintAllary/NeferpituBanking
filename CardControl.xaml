@@ -22,7 +22,7 @@
         <Grid  Grid.Column="1" Grid.RowSpan="2">
             <materialDesign:Card Background="{DynamicResource PrimaryHueDarkBrush}">
                 <StackPanel>
-                    <TextBlock Foreground="White"  HorizontalAlignment="Center" FontSize="30" VerticalAlignment="Center" Margin="20">
+                    <TextBlock Foreground="White"  HorizontalAlignment="Center" FontSize="25" VerticalAlignment="Center" Margin="20">
                         Details
                     </TextBlock>
                     <StackPanel Orientation="Horizontal" Margin="0,10">
@@ -43,26 +43,26 @@
                         <TextBlock FontSize="15" Padding="25,0"  Foreground="White">Card State:</TextBlock>
                         <TextBlock FontSize="15"   Foreground="White" Text="{Binding CurrentCard.State.Value_CardState}"></TextBlock>
                     </StackPanel>
-                    <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="30" VerticalAlignment="Center" Margin="20">
+                    <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" VerticalAlignment="Center" Margin="20">
                         Navigation
                     </TextBlock>
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <ListBox>
                             <ListBoxItem >
                                 <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon HorizontalAlignment="Right" Foreground="White" Height="20" Width="20" Margin="20 10" Kind="UserConvert" />
                                     <Button    Foreground="White" Style="{DynamicResource MaterialDesignFlatButton}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Command="{x:Static materialDesign:Transitioner.MoveNextCommand}" >
                                         Account
                                     </Button>
-                                    <materialDesign:PackIcon HorizontalAlignment="Right" Foreground="White" Height="20" Width="20" Margin="20 10" Kind="UserConvert" />
                                 </StackPanel>
                             </ListBoxItem>
 
                             <ListBoxItem >
                                 <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon HorizontalAlignment="Right"   Foreground="White" Height="20" Width="20" Margin="20 10" Kind="PhoneDialOutline" />
                                     <Button    Foreground="White" Style="{DynamicResource MaterialDesignFlatButton}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}" >
                                         Help
                                     </Button>
-                                    <materialDesign:PackIcon HorizontalAlignment="Right"   Foreground="White" Height="20" Width="20" Margin="20 10" Kind="PhoneDialOutline" />
                                 </StackPanel>
                             </ListBoxItem>
                         </ListBox>

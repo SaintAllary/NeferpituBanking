@@ -13,20 +13,29 @@
 
         </local:ViewModel>
     </Window.DataContext>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="Close" Executed="OnCloseExecuted" />
+
+    </Window.CommandBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.03*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
+   
+
         <Grid   Background="{DynamicResource PrimaryHueDarkBrush}" >
 
+            <Button  Width="50" Margin="0,0,100,0" Click="minimize"  Style="{DynamicResource MaterialDesignFlatDarkBgButton}" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <materialDesign:PackIcon Kind="WindowMinimize" VerticalAlignment="Center"></materialDesign:PackIcon>
+            </Button>
 
-   
-                <Button  Width="50" Margin="0,0,50,0"  Style="{DynamicResource MaterialDesignFlatDarkBgButton}" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Button  Width="50" Margin="0,0,50,0" Click="mini"  Style="{DynamicResource MaterialDesignFlatDarkBgButton}" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <materialDesign:PackIcon Kind="Resize" VerticalAlignment="Center"></materialDesign:PackIcon>
                 </Button>
-               <Button  Style="{DynamicResource MaterialDesignFlatDarkBgButton}" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Button   Command="Close"  Style="{DynamicResource MaterialDesignFlatDarkBgButton}" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <materialDesign:PackIcon Kind="Close" VerticalAlignment="Center"></materialDesign:PackIcon>
                 </Button>
          

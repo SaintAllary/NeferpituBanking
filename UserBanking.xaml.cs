@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.CommandWpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,6 +35,12 @@ namespace NeferpituBanking
         }
 
 
+
+        private void OnCloseExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
+        }
+
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
@@ -41,6 +48,19 @@ namespace NeferpituBanking
             {
                 DragMove();
             }
+        }
+
+
+        private void minimize(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void mini(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Normal;
+            this.Width = this.MinWidth;
+            this.Height = this.MinHeight;
         }
     }
 }
