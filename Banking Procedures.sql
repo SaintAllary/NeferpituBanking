@@ -370,7 +370,7 @@ VALUES('Card information was changed',
         ,1
 		,(select Account_Id from inserted))
 END
-		DROP TRIGGER Card_UPDATED
+
 
 
 CREATE PROC GET_Feedbacks
