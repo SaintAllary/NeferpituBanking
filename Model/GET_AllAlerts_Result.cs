@@ -7,15 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NeferpituBanking
+namespace NeferpituBanking.Model
 {
     using System;
     
-    public partial class GET_Requests_Result
+    public partial class GET_AllAlerts_Result
     {
-        public int Id_SupportCustomerChat { get; set; }
-        public string Caption_CustomerRequest { get; set; }
-        public string Desciption_CustomerRequest { get; set; }
-        public Nullable<System.DateTime> Date_CustomerRequest { get; set; }
+        public string Type { get; set; }
+        public string Caption { get; set; }
+        public string Value { get; set; }
     }
 }

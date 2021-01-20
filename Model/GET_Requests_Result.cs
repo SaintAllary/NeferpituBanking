@@ -7,15 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NeferpituBanking
+namespace NeferpituBanking.Model
 {
     using System;
     
-    public partial class GET_CardBalance_Result
+    public partial class GET_Requests_Result
     {
-        public int Id_CardBalance { get; set; }
-        public Nullable<decimal> CurrentBalance_CardBalance { get; set; }
-        public Nullable<decimal> AvailableBalance_CardBalance { get; set; }
-        public Nullable<decimal> Deposits_CardBalance { get; set; }
+        public int Id_SupportCustomerChat { get; set; }
+        public string Caption_CustomerRequest { get; set; }
+        public string Desciption_CustomerRequest { get; set; }
+        public Nullable<System.DateTime> Date_CustomerRequest { get; set; }
     }
 }

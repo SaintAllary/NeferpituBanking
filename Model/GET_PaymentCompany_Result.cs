@@ -7,13 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NeferpituBanking
+namespace NeferpituBanking.Model
 {
     using System;
     
-    public partial class GET_TransactionState_Result
+    public partial class GET_PaymentCompany_Result
     {
-        public int Id_TransactionState { get; set; }
-        public string Value_TransactionState { get; set; }
+        public int Id_PaymentCompany { get; set; }
+        public string Name_PaymentCompany { get; set; }
     }
 }

@@ -7,13 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NeferpituBanking
+namespace NeferpituBanking.Model
 {
     using System;
     
-    public partial class GET_CardState_Result
+    public partial class GET_PrivateCardInfo_Result
     {
-        public int Id_CardState { get; set; }
-        public string Value_CardState { get; set; }
+        public string CVV_CardPrivate { get; set; }
+        public string ExpireDate_CardPrivate { get; set; }
     }
 }

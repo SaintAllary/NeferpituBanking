@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using NeferpituBanking.Exceptions;
+using NeferpituBanking.Model;
 using NeferpituBanking.Tables_Classes;
 using System;
 using System.Collections.Generic;
@@ -277,9 +278,9 @@ namespace NeferpituBanking
             try
             {
          
-                if (this.CaptionFeedBack.Length <= 20 && this.DescriptionFeedBack.Length <= 200)
+                if (this.CaptionFeedBack !=null & this.DescriptionFeedBack!=null &&this.CaptionFeedBack.Length <= 20 && this.DescriptionFeedBack.Length <= 200)
                 {
-                    DO__SendFeedbackRequest(Convert.ToInt32(this.UserIdObj.Value), this.CaptionFeedBack, this.DescriptionFeedBack, this.Login, this.Password);
+                    DO__SendFeedbackRequest(Convert.ToInt32(this.UserIdObj.Value), this.CaptionFeedBack.Trim(), this.DescriptionFeedBack.Trim(), this.Login, this.Password);
                     reloadData();
                 }
                 else
@@ -339,7 +340,7 @@ namespace NeferpituBanking
             {
                 sortableDatas.Add(new Feedback(item));
             }
-            foreach(var item in GET_Requests(Convert.ToInt32(this.UserIdObj.Value), this.Login, this.Password)){
+            foreach(GET_Requests_Result item in GET_Requests(Convert.ToInt32(this.UserIdObj.Value), this.Login, this.Password)){
                 sortableDatas.Add(new Feedback(item));
             }
 

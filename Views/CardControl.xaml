@@ -22,17 +22,17 @@
         <Grid  Grid.Column="1" Grid.RowSpan="2">
             <materialDesign:Card Background="{DynamicResource PrimaryHueDarkBrush}">
                 <StackPanel>
-                    <TextBlock Foreground="White"  HorizontalAlignment="Center" FontSize="30" VerticalAlignment="Center" Margin="20">
+                    <TextBlock Foreground="White"  HorizontalAlignment="Center" FontSize="25" VerticalAlignment="Center" Margin="20">
                         Details
                     </TextBlock>
                     <StackPanel Orientation="Horizontal" Margin="0,10">
                         <TextBlock FontSize="15" Padding="25,0"  Foreground="White">Internet Limit:</TextBlock>
-                        <TextBlock FontSize="15"   Foreground="White" Text="{Binding CurrentCard.CardLimit.InternetPaymentLim_CardLimits}"></TextBlock>
+                        <TextBlock FontSize="15"   Foreground="White" Text="{Binding CurrentCard.CardLimit.InternetPaymentLim_CardLimits,StringFormat=N2}"></TextBlock>
                         <TextBlock FontSize="15" Padding="5,0"  Foreground="White">$</TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,10">
                         <TextBlock FontSize="15" Padding="25,0" Foreground="White">Loan Limit:</TextBlock>
-                        <TextBlock FontSize="15"   Foreground="White" Text="{Binding CurrentCard.CardLimit.InternetPaymentLim_CardLimits}"></TextBlock>
+                        <TextBlock FontSize="15"   Foreground="White" Text="{Binding CurrentCard.CardLimit.InternetPaymentLim_CardLimits,StringFormat=N2}"></TextBlock>
                         <TextBlock FontSize="15" Padding="5,0"  Foreground="White">$</TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,10">
@@ -43,26 +43,26 @@
                         <TextBlock FontSize="15" Padding="25,0"  Foreground="White">Card State:</TextBlock>
                         <TextBlock FontSize="15"   Foreground="White" Text="{Binding CurrentCard.State.Value_CardState}"></TextBlock>
                     </StackPanel>
-                    <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="30" VerticalAlignment="Center" Margin="20">
+                    <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" VerticalAlignment="Center" Margin="20">
                         Navigation
                     </TextBlock>
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <ListBox>
                             <ListBoxItem >
                                 <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon HorizontalAlignment="Right" Foreground="White" Height="20" Width="20" Margin="20 10" Kind="UserConvert" />
                                     <Button    Foreground="White" Style="{DynamicResource MaterialDesignFlatButton}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Command="{x:Static materialDesign:Transitioner.MoveNextCommand}" >
                                         Account
                                     </Button>
-                                    <materialDesign:PackIcon HorizontalAlignment="Right" Foreground="White" Height="20" Width="20" Margin="20 10" Kind="UserConvert" />
                                 </StackPanel>
                             </ListBoxItem>
 
                             <ListBoxItem >
                                 <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon HorizontalAlignment="Right"   Foreground="White" Height="20" Width="20" Margin="20 10" Kind="PhoneDialOutline" />
                                     <Button    Foreground="White" Style="{DynamicResource MaterialDesignFlatButton}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}" >
                                         Help
                                     </Button>
-                                    <materialDesign:PackIcon HorizontalAlignment="Right"   Foreground="White" Height="20" Width="20" Margin="20 10" Kind="PhoneDialOutline" />
                                 </StackPanel>
                             </ListBoxItem>
                         </ListBox>
@@ -86,8 +86,8 @@
                                 <TextBlock VerticalAlignment="Center" Foreground="Black"   FontSize="15"  Text="{Binding DestionationCard_Transaction}"></TextBlock>
                             </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Margin="50,0" Cursor="Hand">
-                            
-                            <TextBlock HorizontalAlignment="Right" FontSize="13" Text="{Binding Value_Transaction}" Foreground="Black" />
+
+                                <TextBlock HorizontalAlignment="Right" FontSize="13" Text="{Binding Value_Transaction,StringFormat=N2}" Foreground="Black" />
                             <TextBlock Margin="0,5" FontSize="10" FontWeight="Bold"  Text="{Binding Date_Transaction}" />
                         </StackPanel>
                             
@@ -148,16 +148,16 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <StackPanel Margin="10,10 25 0" VerticalAlignment="Top">
-                    <Label  Margin="0,10,0,0"   FontSize="30" FontWeight="Bold" Foreground="White" Content="{Binding CurrentCard.GET_CardBalance_Result.CurrentBalance_CardBalance}"></Label>
+                    <TextBlock  Margin="0,10,0,0"   FontSize="30" FontWeight="Bold" Foreground="White" Text="{Binding CurrentCard.GET_CardBalance_Result.CurrentBalance_CardBalance,StringFormat=N2}"></TextBlock>
                     <!---->
                     <StackPanel Orientation="Horizontal">
                         <Label   FontSize="15" >Avaliable:</Label>
-                        <Label  FontSize="15"  Content="{Binding CurrentCard.GET_CardBalance_Result.CurrentBalance_CardBalance}"></Label>
+                        <TextBlock VerticalAlignment="Center" FontSize="15"  Text="{Binding CurrentCard.GET_CardBalance_Result.CurrentBalance_CardBalance,StringFormat=N2}"></TextBlock>
                         <Label  FontSize="15" >$</Label>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label   FontSize="15" >Deposit:</Label>
-                        <Label  FontSize="15"  Content="{Binding CurrentCard.GET_CardBalance_Result.Deposits_CardBalance}"></Label>
+                        <TextBlock VerticalAlignment="Center" FontSize="15"  Text="{Binding CurrentCard.GET_CardBalance_Result.Deposits_CardBalance,StringFormat=N2}"></TextBlock>
                         <Label  FontSize="15" >$</Label>
                     </StackPanel>
                
