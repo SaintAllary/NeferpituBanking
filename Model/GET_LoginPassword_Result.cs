@@ -7,14 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NeferpituBanking
+namespace NeferpituBanking.Model
 {
     using System;
     
-    public partial class GET_CardLimits_Result
+    public partial class GET_LoginPassword_Result
     {
-        public int Id_CardLimits { get; set; }
-        public Nullable<decimal> InternetPaymentLim_CardLimits { get; set; }
-        public Nullable<decimal> LoanPaymentLim_CardLimits { get; set; }
+        public string Value_Login { get; set; }
+        public Nullable<System.DateTime> LastSetDate_Login { get; set; }
+        public string Value_Password { get; set; }
+        public Nullable<System.DateTime> LastSetDate_Password { get; set; }
     }
 }

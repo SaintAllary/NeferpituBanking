@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using NeferpituBanking.Exceptions;
+using NeferpituBanking.Model;
 using NeferpituBanking.Tables_Classes;
 using System;
 using System.Collections.Generic;
@@ -339,7 +340,7 @@ namespace NeferpituBanking
             {
                 sortableDatas.Add(new Feedback(item));
             }
-            foreach(var item in GET_Requests(Convert.ToInt32(this.UserIdObj.Value), this.Login, this.Password)){
+            foreach(GET_Requests_Result item in GET_Requests(Convert.ToInt32(this.UserIdObj.Value), this.Login, this.Password)){
                 sortableDatas.Add(new Feedback(item));
             }
 

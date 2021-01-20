@@ -7,16 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NeferpituBanking
+namespace NeferpituBanking.Model
 {
     using System;
     
-    public partial class GET_LoginPasswordHistory_Result
+    public partial class GET_Feedbacks_Result
     {
-        public int Id_LoginPasswordHistory { get; set; }
-        public string Caption_LoginPasswordHistory { get; set; }
-        public string Description_LoginPasswordHistory { get; set; }
-        public Nullable<System.DateTime> Date_LoginPasswordHistory { get; set; }
-        public Nullable<int> LoginPasswordHistory_Account_Id { get; set; }
+        public int Id_SupportCustomerChat { get; set; }
+        public string Answer_SupportResponse { get; set; }
+        public Nullable<System.DateTime> Date_SupportResponse { get; set; }
     }
 }
